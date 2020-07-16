@@ -6,8 +6,9 @@ export default class Login extends Component {
         console.log(e.target.name, e.target.value)
     }
 
-    handleSubmit = () => {
-        console.log("Wire up to sign up")
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log("Wire up to login")
     }
 
     handleSignup = () => {
@@ -19,20 +20,21 @@ export default class Login extends Component {
             <div>
                 <h1>Login Page</h1>
                 <Fragment>
-                    <form>
+                    <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                         <div>
                             <label>email:</label>
-                            <input type="text" name="email" onChange={this.handleChange} placeholder="enter email" />
+                            <input type="text" name="email" placeholder="enter email" />
                         </div>
                         <div>
                             <label>password:</label>
-                            <input type="text" name="password" onChange={this.handleChange} placeholder="enter password" />
+                            <input type="text" name="password" placeholder="enter password" />
                         </div>
                         <div>
-                            <button text="Login" onClick={this.handleSubmit} >Login</button>
-                            <button text="Sign Up" onClick={this.handleSignup} >Sign Up</button>
+                            <button type="submit" >Login</button>
                         </div>
                     </form>
+                    Not a member? <button onClick={this.handleSignup} >Sign Up!</button>
+
                 </Fragment>
             </div>
         )
