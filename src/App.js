@@ -4,6 +4,7 @@ import './App.css';
 import Login from './component/Login.js'
 import Signup from './component/Signup.js'
 import ClassIndex from './component/class-index/ClassIndex.js'
+import ClassShow from './component/class-show/ClassShow.js'
 
 const link = {
   width: '100px',
@@ -30,6 +31,7 @@ const Navbar = () =>
     <NavLink to="/signup" exact style={link} activeStyle={{background: 'darkblue'}}>Signup</NavLink>
     <NavLink to="/login" exact style={link} activeStyle={{background: 'darkblue'}}>Login</NavLink>
     <NavLink to="/classes" exact style={link} activeStyle={{background: 'darkblue'}}>Classes</NavLink>
+    <NavLink to="/show" exact style={link} activeStyle={{background: 'darkblue'}}>Show</NavLink>
   </div>;
 
 function App() {
@@ -41,6 +43,7 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/classes" component={ClassIndex} />
+        <Route exact path="/show" component={ClassShow} />
       </Router>
     </div>
   );
