@@ -23,7 +23,7 @@ export default class ClassList extends Component {
         return (
             <div>
                 <div>
-                    <h2>Showing (NUM) classes for (DATE) for (CATEGORY)</h2>
+                    <h2>`Showing (NUM) classes for (DATE) for (CATEGORY)`</h2>
                 </div>
                 <div>
                     {this.state.sessions.map(session=>{

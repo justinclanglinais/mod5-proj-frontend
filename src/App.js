@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './App.css';
-import Login from './component/Login.js'
-import Signup from './component/Signup.js'
-import ClassIndex from './component/class-index/ClassIndex.js'
-import ClassShow from './component/class-show/ClassShow.js'
+import Login from './components/Login.js'
+import Signup from './components/Signup.js'
+import ClassIndex from './components/class-index/ClassIndex.js'
+import ClassShow from './components/class-show/ClassShow.js'
 
 const link = {
   width: '100px',

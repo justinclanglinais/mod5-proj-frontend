@@ -1,21 +1,50 @@
 import React, {Component, Fragment} from 'react';
+let localUsersAPI = "http://localhost:3000/api/v1/users"
 
 export default class Signup extends Component {
-    
+    state = {
+        user: {
+            email: '',
+            password: '',
+            isAdmin: true,
+            name: '',
+            age: '',
+            img_url: '',
+            belt: ''
+        }
+    }
+
     handleChange = (e) => {
-        console.log(e.target.name, e.target.value)
+        this.setState({
+            user: {...this.state.user, [e.target.name]: e.target.value}
+        })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e)
+        const user = {...this.state}
+        this.addUser(user)
     }
 
     handleSignup = () => {
         console.log("Route to Signup")
     }
 
+    addUser = user => {
+        fetch(localUsersAPI, {
+            method : "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        .then( resp => resp.json())
+        .then( data => console.log(data))
+    }
+
     render () {
+
+
         return (
             <div>
                 <h1>Signup Page</h1>
@@ -39,12 +68,11 @@ export default class Signup extends Component {
                         </div>
                         <div>
                             <label>Your Image URL:</label>
-                            <input type="text" name="img" placeholder="enter your image url" />
+                            <input type="text" name="img_url" placeholder="enter your image url" />
                         </div>
                         <div>
                             <label>Your Belt:</label>
-                            {/* <input type="text" name="belt" placeholder="enter your belt" /> */}
-                            <select>
+                            <select name="belt">
                                 <option value="white">White</option>
                                 <option value="grey">Grey</option>
                                 <option value="yellow">Yellow</option>
