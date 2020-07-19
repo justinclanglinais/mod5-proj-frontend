@@ -54,7 +54,7 @@ class App extends React.Component {
   componentDidMount = () => {
       this.fetchClasses()
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -65,7 +65,7 @@ class App extends React.Component {
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/classes" render={classesProps => <ClassIndex {...classesProps} classes={this.state.sessions} />} />
+            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
             <Route exact path="/show" component={ClassShow} />
           </div>
         </Router>

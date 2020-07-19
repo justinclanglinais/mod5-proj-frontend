@@ -4,7 +4,9 @@ import ClassList from './ClassList.js'
 export default class ClassIndex extends Component {
     render() {
         return (
-            <ClassList />
+            <div>
+                <ClassList sessions={this.props.sessions}/>
+            </div>
         )
     }
 }
