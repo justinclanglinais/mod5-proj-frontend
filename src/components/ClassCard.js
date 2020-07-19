@@ -1,5 +1,4 @@
-import React, {Component, useReducer} from 'react';
-import InstructorCard from './class-show/InstructorCard';
+import React, {Component} from 'react';
 
 export default class ClassCard extends Component {
     render() {

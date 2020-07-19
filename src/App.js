@@ -5,6 +5,7 @@ import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import ClassIndex from './components/class-index/ClassIndex.js'
 import ClassShow from './components/class-show/ClassShow.js'
+import Dashboard from './components/dashboard/Dashboard.js'
 
 const link = {
   width: '100px',
@@ -40,6 +41,7 @@ function App() {
       <Router>
         <Navbar />
         <Route exact path="/" render={() => <h1>Home Page</h1>} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/classes" component={ClassIndex} />
