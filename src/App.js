@@ -35,20 +35,43 @@ const Navbar = () =>
     <NavLink to="/show" exact style={link} activeStyle={{background: 'darkblue'}}>Show</NavLink>
   </div>;
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Route exact path="/" render={() => <h1>Home Page</h1>} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/classes" component={ClassIndex} />
-        <Route exact path="/show" component={ClassShow} />
-      </Router>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {
+    sessions: []
+  } 
+
+  fetchClasses = () => {
+      fetch(`http://localhost:3000/sessions`)
+      .then(r=>r.json())
+      .then(d=>
+          // console.log(d)
+          this.setState({sessions : d})    
+      )
+  }
+
+  componentDidMount = () => {
+      this.fetchClasses()
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <div>
+            <Navbar />
+            <Route exact path="/" render={() => <h1>Home Page</h1>} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/classes" render={classesProps => <ClassIndex {...classesProps} classes={this.state.sessions} />} />
+            <Route exact path="/show" component={ClassShow} />
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
