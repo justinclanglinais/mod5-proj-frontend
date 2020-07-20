@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ClassList from './ClassList.js'
 import ClassShow from '../class-show/ClassShow.js'
 import {Route} from 'react-router-dom'

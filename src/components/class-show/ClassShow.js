@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import InstructorCard from './InstructorCard.js'
 import ParticipantList from './ParticipantList.js'
 import Topic from './Topic.js'
 
-const ClassShow = ({match,movies}) => {
+const ClassShow = ({match,thisSession}) => {
+    {console.log("inside Class Show")}
     return (
         <div>
             <div>
