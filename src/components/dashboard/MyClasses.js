@@ -6,7 +6,6 @@ import PastClasses from './PastClasses.js'
 export default class MyClasses extends Component {
 
     render() {
-        console.log(this.props.sessions)
         return (
             <div>
                 <div>
