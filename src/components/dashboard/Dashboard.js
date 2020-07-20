@@ -16,8 +16,8 @@ export default class Dashboard extends Component {
     fetchUser = () => {
         fetch('http://localhost:3000/api/v1/users/1')
         .then(r=>r.json())
-        // .then(d=>this.loadUser(d))
-        .then(d=>console.log(d))
+        .then(d=>this.loadUser(d))
+        // .then(d=>console.log(d))
     }
 
     componentDidMount = () => {
@@ -28,7 +28,7 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <div>
-                    <MyClasses />
+                    <MyClasses sessions={this.state.user.enrollments}/>
                 </div>
                 <div>
                     <UserInfo user={this.state.user}/>

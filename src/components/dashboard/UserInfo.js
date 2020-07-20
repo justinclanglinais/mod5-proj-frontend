@@ -3,7 +3,7 @@ import React, {Component, Fragment} from 'react';
 export default class UserInfo extends Component {
     
     render () {
-        const { name , age , img_url , belt } = this.props
+        const { name , age , img_url , belt } = this.props.user
         return (
             <div>
                 <h1>Student Profile</h1>
@@ -15,11 +15,11 @@ export default class UserInfo extends Component {
                     <h3>{age}</h3>
                 </div>
                 <div>
-                    render belt image
-                    {belt}
+                    <h3>(render belt image)</h3>
+                    {belt} belt
                 </div>
                 <div>
-                    <h2>Achievements</h2>
+                    <h2>Achievements:</h2>
                 </div>
             </div>
         )
