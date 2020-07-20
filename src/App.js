@@ -26,13 +26,14 @@ const Navbar = () =>
       style={link}
       /* add prop for activeStyle */
       activeStyle={{
-        background: 'darkblue'
+        background: 'grey'
       }}
     >Home</NavLink>
-    <NavLink to="/signup" exact style={link} activeStyle={{background: 'darkblue'}}>Signup</NavLink>
-    <NavLink to="/login" exact style={link} activeStyle={{background: 'darkblue'}}>Login</NavLink>
-    <NavLink to="/classes" exact style={link} activeStyle={{background: 'darkblue'}}>Classes</NavLink>
-    <NavLink to="/show" exact style={link} activeStyle={{background: 'darkblue'}}>Show</NavLink>
+    <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>
+    <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink>
+    <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>
+    <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink>
+    <NavLink to="/show" exact style={link} activeStyle={{background: 'grey'}}>Show</NavLink>
   </div>;
 
 function App() {
