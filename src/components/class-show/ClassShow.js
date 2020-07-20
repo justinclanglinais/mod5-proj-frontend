@@ -3,8 +3,9 @@ import InstructorCard from './InstructorCard.js'
 import ParticipantList from './ParticipantList.js'
 import Topic from './Topic.js'
 
-const ClassShow = ({match,thisSession}) => {
-    {console.log("inside Class Show")}
+const ClassShow = ({match,sessions}) => {
+    {console.log(match,"inside Class Show")}
+    {console.log(sessions, "inside class Show")}
     return (
         <div>
             <div>

@@ -4,7 +4,6 @@ import './App.css';
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import ClassIndex from './components/class-index/ClassIndex.js'
-import ClassShow from './components/class-show/ClassShow.js'
 import Dashboard from './components/dashboard/Dashboard.js'
 
 const link = {
@@ -32,7 +31,6 @@ const Navbar = () =>
     <NavLink to="/signup" exact style={link} activeStyle={{background: 'darkblue'}}>Signup</NavLink>
     <NavLink to="/login" exact style={link} activeStyle={{background: 'darkblue'}}>Login</NavLink>
     <NavLink to="/classes" exact style={link} activeStyle={{background: 'darkblue'}}>Classes</NavLink>
-    <NavLink to="/show" exact style={link} activeStyle={{background: 'darkblue'}}>Show</NavLink>
   </div>;
 
 
@@ -66,7 +64,6 @@ class App extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
-            <Route exact path="/show" component={ClassShow} />
           </div>
         </Router>
       </div>
