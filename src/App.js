@@ -5,6 +5,8 @@ import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import ClassIndex from './components/class-index/ClassIndex.js'
 import Dashboard from './components/dashboard/Dashboard.js'
+import ClassShow from './components/class-show/ClassShow.js'
+
 
 const link = {
   width: '100px',
@@ -64,6 +66,8 @@ class App extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
+            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions}/>} />
+
           </div>
         </Router>
       </div>
