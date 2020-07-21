@@ -21,7 +21,7 @@ const login = (data) => {
 const getCurrentUser = () => {
     const token = localStorage.getItem('token')
     return fetch(`${API_ROOT}/current_user`, {
-        headers: { Authorization: token}
+        headers: { ...headers, Authorization: token }
     })
     .then(res=>res.json())
 }
