@@ -64,7 +64,6 @@ class App extends React.Component {
       fetch(`http://localhost:3000/sessions`)
       .then(r=>r.json())
       .then(d=>
-          // console.log(d)
           this.setState({sessions : d})    
       )
   }

@@ -4,6 +4,7 @@ import ClassCard from '../ClassCard.js'
 export default class UpcomingClasses extends Component {
 
     render() {
+
         return (
             <div>
                 <div>
