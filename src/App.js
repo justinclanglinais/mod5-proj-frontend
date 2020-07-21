@@ -34,7 +34,6 @@ const Navbar = () =>
     <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink>
     <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>
     <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink>
-    <NavLink to="/show" exact style={link} activeStyle={{background: 'grey'}}>Show</NavLink>
   </div>;
 
 
