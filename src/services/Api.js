@@ -18,9 +18,18 @@ const login = (data) => {
     .then(res=>res.json())
 }
 
+const getCurrentUser = () => {
+    const token = localStorage.getItem('token')
+    return fetch(`${API_ROOT}/current_user`, {
+        headers: { Authorization: token}
+    })
+    .then(res=>res.json())
+}
+
 export const Api = {
     auth: {
-        login
+        login,
+        getCurrentUser
     },
     sessions: {
         fetchSessions

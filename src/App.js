@@ -6,6 +6,7 @@ import Signup from './components/Signup.js'
 import ClassIndex from './components/class-index/ClassIndex.js'
 import Dashboard from './components/dashboard/Dashboard.js'
 import ClassShow from './components/class-show/ClassShow.js'
+import { Api } from './services/Api.js'
 
 
 const link = {
@@ -30,9 +31,9 @@ const Navbar = () =>
         background: 'grey'
       }}
     >Home</NavLink>
+    <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>
     <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>
     <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink>
-    <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>
     <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink>
   </div>;
 
@@ -51,6 +52,12 @@ class App extends React.Component {
     this.setState({
       auth : currentUser
     })
+    localStorage.setItem('jwt', user.jwt)
+  }
+
+  handleLogout = () => {
+    this.setState( { auth: {user: {} } } )
+    localStorage.removeItem('token')
   }
 
   fetchClasses = () => {
@@ -64,6 +71,10 @@ class App extends React.Component {
 
   componentDidMount = () => {
       this.fetchClasses()
+      const token = localStorage.getItem('jwt')
+      if (token) {
+        Api.auth.getCurrentUser().then(data=>console.log("mount app get user", data))
+      }
   }
 
   render() {
