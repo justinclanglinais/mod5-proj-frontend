@@ -5,8 +5,8 @@ import UserInfo from './UserInfo.js'
 export default class Dashboard extends Component {
     state = {
         user: {
-
-        }
+            
+        } 
     }
 
     loadUser = (userObj) => {
@@ -41,6 +41,7 @@ export default class Dashboard extends Component {
     }
 
     render () {
+        // console.log(this.props)
         return (
             <div>
                 <div>
