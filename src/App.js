@@ -40,20 +40,28 @@ const Navbar = () =>
 
 class App extends React.Component {
   state = {
+    user: {},
     sessions: []
   } 
 
   fetchClasses = () => {
-      fetch(`http://localhost:3000/sessions`)
-      .then(r=>r.json())
-      .then(d=>
-          // console.log(d)
-          this.setState({sessions : d})    
-      )
+    fetch(`http://localhost:3000/sessions`)
+    .then(r=>r.json())
+    .then(data=>
+      this.setState({...this.state, sessions : data})    
+    )
+  }
+
+  fetchUser = () => {
+    fetch('http://localhost:3000/api/v1/users/1')
+    .then(r=>r.json())
+    .then(data=>
+      this.setState({...this.state, user : data}))
   }
 
   componentDidMount = () => {
-      this.fetchClasses()
+    this.fetchClasses()
+    this.fetchUser()
   }
 
   render() {
@@ -63,7 +71,7 @@ class App extends React.Component {
           <div>
             <Navbar />
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" render={() => <Dashboard user={this.state.user} />} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
