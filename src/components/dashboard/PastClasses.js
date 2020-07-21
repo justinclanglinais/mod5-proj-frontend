@@ -11,7 +11,7 @@ export default class PastClasses extends Component {
                 </div>
                 <div>
                     <p>past classes listed</p>
-                    <ClassCard />
+                    {/* <ClassCard /> */}
                 </div>
             </div>
         )

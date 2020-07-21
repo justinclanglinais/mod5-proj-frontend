@@ -4,8 +4,6 @@ import ClassCard from '../ClassCard.js'
 export default class UpcomingClasses extends Component {
 
     render() {
-        console.log("in upcoming", this.props.sessions)
-
         return (
             <div>
                 <div>

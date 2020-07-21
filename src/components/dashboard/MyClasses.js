@@ -6,7 +6,6 @@ import PastClasses from './PastClasses.js'
 export default class MyClasses extends Component {
 
     render() {
-        console.log("in myclasses:")
         return (
             <div>
                 <div>
@@ -14,7 +13,7 @@ export default class MyClasses extends Component {
                 </div>
                 <div>
                     {this.props.sessions && <UpcomingClasses sessions={this.props.sessions}/>}
-                    <PastClasses />
+                    {/* <PastClasses /> */}
                 </div>
             </div>
         )

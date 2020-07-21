@@ -37,8 +37,6 @@ const Navbar = () =>
     <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink>
   </div>;
 
-
-
 class App extends React.Component {
   state = {
     auth: {
@@ -91,8 +89,6 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <div>
-          {/* {this.state.auth.user.id ? <h4>Welcome!</h4> : <h4>Please Log In</h4>} */}
-
             <Navbar />
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
             <Route exact path="/dashboard" render={() => <Dashboard user={this.state.user} />} />

@@ -3,9 +3,7 @@ import MyClasses from './MyClasses.js'
 import UserInfo from './UserInfo.js'
 
 export default class Dashboard extends Component {
-
     render () {
-        console.log("in dashboard:", this.props.user)
         return (
             <div>
                 <div>

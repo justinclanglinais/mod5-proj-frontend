@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 export default class ClassCard extends Component {
     render() {
-        // console.log("in class card",this.props.thisSession)
         const { time, topic, category, user } = this.props.thisSession
         return (
             <div>
