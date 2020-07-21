@@ -51,6 +51,7 @@ class App extends React.Component {
     this.setState({
       auth : currentUser
     })
+    console.log("handle login", user)
     localStorage.setItem('token', user.user.id)
   }
 

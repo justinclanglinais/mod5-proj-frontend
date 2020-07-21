@@ -2,7 +2,7 @@ const API_ROOT = `http://localhost:3000`
 
 const headers = {
     'Content-Type' : 'application/json',
-    Accepts : 'application/json'
+    Accepts : 'application/json',
 }
 
 const fetchSessions = () => {
