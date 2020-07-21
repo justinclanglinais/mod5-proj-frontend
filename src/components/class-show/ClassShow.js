@@ -11,7 +11,7 @@ const ClassShow = ({match,sessions}) => {
         <div>
             <div>
                 <h1>Class Show</h1>
-                <h2>{category.name} - {time}</h2>
+                <h2>{time} - {category.name}</h2>
                 <h1>{id}</h1>
             </div>
             <div>

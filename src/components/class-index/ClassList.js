@@ -4,8 +4,8 @@ import ClassCard from '../ClassCard.js'
 
 const ClassList = ({sessions}) => {
     const renderClasses = sessions.map(s => 
-        // <div><Link key={s.id} to={`/classes/${s.id}`}><ClassCard thisSession={s}/></Link></div> 
-        <div><Link key={s.id} to={`/classes/${s.id}`}><h1>{s.topic.name}</h1></Link></div> 
+        <div><Link key={s.id} to={`/classes/${s.id}`}><ClassCard thisSession={s}/></Link></div> 
+        // <div><Link key={s.id} to={`/classes/${s.id}`}><h1>{s.topic.name}</h1></Link></div> 
     )
     return (
         <div>
