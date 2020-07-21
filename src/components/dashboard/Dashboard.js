@@ -4,15 +4,16 @@ import UserInfo from './UserInfo.js'
 
 export default class Dashboard extends Component {
     render () {
+        // console.log("in dashboard", this.props.user.sessions)
         return (
             <div>
                 <div>
                     {this.props.user.sessions && <MyClasses sessions={this.props.user.sessions}/>}
-                    <MyClasses sessions={this.props.user.sessions}/>
+                    {/* <MyClasses sessions={this.props.user.sessions}/> */}
 
                 </div>
                 <div>
-                    <UserInfo user={this.props.user}/>
+                    {this.props.user && <UserInfo user={this.props.user}/>}
                 </div>
             </div>
         )

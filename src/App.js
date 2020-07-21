@@ -97,7 +97,7 @@ class App extends React.Component {
           <div>
             <Navbar />
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
-            <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user} />} />
+            {this.state.auth.user.user ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
             <Route exact path="/signup" component={Signup} />
             <Route  path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
