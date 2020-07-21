@@ -4,8 +4,8 @@ export default class Topic extends Component {
     render() {
         return (
             <div>
-                <h3>Topic Name</h3>
-                <h1>VIDEO EMBEDDED</h1>
+                <h3>{this.props.topic.name}</h3>
+                <h1>{this.props.topic.vid_url}</h1>
             </div>
         )
     }

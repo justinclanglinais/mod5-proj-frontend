@@ -11,16 +11,17 @@ const ClassShow = ({match,sessions}) => {
         <div>
             <div>
                 <h1>Class Show</h1>
+                <h2>{category.name}</h2>
             </div>
             <div>
-                <InstructorCard />
+                <Topic topic={topic}/>
             </div>
             <div>
+                <InstructorCard instructor={user}/>
+            </div>
+            {/* <div>
                 <ParticipantList />
-            </div>
-            <div>
-                <Topic />
-            </div>
+            </div> */}
         </div>
     )
 }
