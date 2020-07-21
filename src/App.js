@@ -51,7 +51,7 @@ class App extends React.Component {
     this.setState({
       auth : currentUser
     })
-    localStorage.setItem('jwt', user.jwt)
+    localStorage.setItem('token', user.user.id)
   }
 
   handleLogout = () => {
@@ -76,12 +76,12 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-      this.fetchUser()
-      this.fetchClasses()
-      const token = localStorage.getItem('jwt')
-      if (token) {
-        Api.auth.getCurrentUser().then(data=>console.log("mount app get user", data))
-      }
+    this.fetchUser()
+    this.fetchClasses()
+    const token = localStorage.getItem('token')
+    if (token) {
+      Api.auth.getCurrentUser().then(data=>console.log("mount app get user", data))
+    }
   }
 
   render() {
