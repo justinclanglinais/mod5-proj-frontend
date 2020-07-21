@@ -83,6 +83,7 @@ class App extends React.Component {
     if (token) {
       Api.auth.getCurrentUser().then(data=>{
         const currentUser = { user : data }
+        console.log("mount get current", data)
         this.setState({
           auth : currentUser
         })
