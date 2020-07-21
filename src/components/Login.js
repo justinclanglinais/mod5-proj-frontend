@@ -23,6 +23,7 @@ export default class Login extends Component {
                 this.setState({error: true})
             } else {
                 this.props.handleLogin(user)
+                this.props.history.push('/classes')
             }
         })
     }

@@ -78,7 +78,8 @@ class App extends React.Component {
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" render={() => <Login handleLogin={this.handleLogin} />} />
+            <Route  path="/login" render={props => {
+              return <Login {...props} handleLogin={this.handleLogin} />}} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
             <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions}/>} />
 
