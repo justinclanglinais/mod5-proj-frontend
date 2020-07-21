@@ -25,14 +25,17 @@ export default class Dashboard extends Component {
     }
 
     render () {
+        console.log("in dashboard:", this.state.user)
         return (
             <div>
-                <div>
+                {/* <div>
                     {this.state.user.sessions && <MyClasses sessions={this.state.user.sessions}/>}
+                    <MyClasses sessions={this.state.user.sessions}/>
+
                 </div>
                 <div>
                     <UserInfo user={this.state.user}/>
-                </div>
+                </div> */}
             </div>
         )
     }
