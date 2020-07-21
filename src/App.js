@@ -44,6 +44,7 @@ class App extends React.Component {
     auth: {
       user: {}
     },
+    user: {},
     sessions: []
   } 
 
@@ -61,14 +62,23 @@ class App extends React.Component {
   }
 
   fetchClasses = () => {
-      fetch(`http://localhost:3000/sessions`)
-      .then(r=>r.json())
-      .then(d=>
-          this.setState({sessions : d})    
-      )
+    fetch(`http://localhost:3000/sessions`)
+    .then(r=>r.json())
+    .then(d=>
+      this.setState({...this.state, sessions : d})    
+    )
+  }
+
+  fetchUser = () => {
+    fetch('http://localhost:3000/api/v1/users/1')
+    .then(r=>r.json())
+    .then(d=>
+      this.setState({...this.state, user : d})
+    )
   }
 
   componentDidMount = () => {
+      this.fetchUser()
       this.fetchClasses()
       const token = localStorage.getItem('jwt')
       if (token) {
@@ -77,7 +87,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.auth)
     return (
       <div className="App">
         <Router>
@@ -86,7 +95,7 @@ class App extends React.Component {
 
             <Navbar />
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" render={() => <Dashboard user={this.state.user} />} />
             <Route exact path="/signup" component={Signup} />
             <Route  path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
