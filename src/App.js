@@ -40,8 +40,18 @@ const Navbar = () =>
 
 class App extends React.Component {
   state = {
+    auth: {
+      user: {}
+    },
     sessions: []
   } 
+
+  handleLogin = (user) => {
+    const currentUser = { user : user }
+    this.setState({
+      auth : currentUser
+    })
+  }
 
   fetchClasses = () => {
       fetch(`http://localhost:3000/sessions`)
@@ -57,15 +67,18 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.auth)
     return (
       <div className="App">
         <Router>
           <div>
+          {/* {this.state.auth.user.id ? <h4>Welcome!</h4> : <h4>Please Log In</h4>} */}
+
             <Navbar />
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" render={() => <Login handleLogin={this.handleLogin} />} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
             <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions}/>} />
 
