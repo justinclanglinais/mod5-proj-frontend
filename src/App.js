@@ -80,7 +80,12 @@ class App extends React.Component {
     this.fetchClasses()
     const token = localStorage.getItem('token')
     if (token) {
-      Api.auth.getCurrentUser().then(data=>console.log("mount app get user", data))
+      Api.auth.getCurrentUser().then(data=>{
+        const currentUser = { user : data }
+        this.setState({
+          auth : currentUser
+        })
+      })
     }
   }
 
@@ -91,7 +96,7 @@ class App extends React.Component {
           <div>
             <Navbar />
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
-            <Route exact path="/dashboard" render={() => <Dashboard user={this.state.user} />} />
+            <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user} />} />
             <Route exact path="/signup" component={Signup} />
             <Route  path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
