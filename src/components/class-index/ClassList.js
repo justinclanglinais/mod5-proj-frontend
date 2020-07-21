@@ -1,36 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom'
 import ClassCard from '../ClassCard.js'
 
-export default class ClassList extends Component {
-    state = {
-        sessions: []
-    }
-
-    fetchClasses = () => {
-        fetch(`http://localhost:3000/sessions`)
-        .then(r=>r.json())
-        .then(d=>
-            // console.log(d)
-            this.setState({sessions : d})    
-        )
-    }
-
-    componentDidMount = () => {
-        this.fetchClasses()
-    }
-
-    render() {
-        return (
+const ClassList = ({sessions}) => {
+    const renderClasses = sessions.map(s => 
+        <div><Link key={s.id} to={`/classes/${s.id}`}><ClassCard thisSession={s}/></Link></div> 
+        // <div><Link key={s.id} to={`/classes/${s.id}`}><h1>{s.topic.name}</h1></Link></div> 
+    )
+    return (
+        <div>
             <div>
-                <div>
-                    <h2>`Showing (NUM) classes for (DATE) for (CATEGORY)`</h2>
-                </div>
-                <div>
-                    {this.state.sessions.map(session=>{
-                        return <ClassCard thisSession={session}/>
-                    })}
-                </div>
+                <h2>{`Showing (NUM) classes for (DATE) for (CATEGORY)`}</h2>
             </div>
-        )
-    }
+            <div>
+                {renderClasses}
+            </div>
+        </div>
+    )
 }
+export default ClassList

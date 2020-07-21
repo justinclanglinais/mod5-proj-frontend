@@ -4,8 +4,9 @@ import './App.css';
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import ClassIndex from './components/class-index/ClassIndex.js'
-import ClassShow from './components/class-show/ClassShow.js'
 import Dashboard from './components/dashboard/Dashboard.js'
+import ClassShow from './components/class-show/ClassShow.js'
+
 
 const link = {
   width: '100px',
@@ -36,20 +37,44 @@ const Navbar = () =>
     <NavLink to="/show" exact style={link} activeStyle={{background: 'grey'}}>Show</NavLink>
   </div>;
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Route exact path="/" render={() => <h1>Home Page</h1>} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/classes" component={ClassIndex} />
-        <Route exact path="/show" component={ClassShow} />
-      </Router>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {
+    sessions: []
+  } 
+
+  fetchClasses = () => {
+      fetch(`http://localhost:3000/sessions`)
+      .then(r=>r.json())
+      .then(d=>
+          // console.log(d)
+          this.setState({sessions : d})    
+      )
+  }
+
+  componentDidMount = () => {
+      this.fetchClasses()
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <div>
+            <Navbar />
+            <Route exact path="/" render={() => <h1>Home Page</h1>} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
+            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions}/>} />
+
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

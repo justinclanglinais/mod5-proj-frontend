@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ClassList from './ClassList.js'
+import ClassShow from '../class-show/ClassShow.js'
+import {Route} from 'react-router-dom'
 
-export default class ClassIndex extends Component {
-    render() {
-        return (
-            <ClassList />
-        )
-    }
-}
+const ClassIndex = ({match,sessions}) => (
+    <div>
+        <ClassList sessions={sessions}/>
+    </div>
+)    
+export default ClassIndex

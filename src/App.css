@@ -36,7 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-div.a {
-  outline: 2px dashed blue;
-}
