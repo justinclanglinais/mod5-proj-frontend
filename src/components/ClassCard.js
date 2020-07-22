@@ -7,7 +7,7 @@ export default class ClassCard extends Component {
             <div>
                 <div>
                     <h3>{time}</h3>
-                    <h3>{id}</h3>
+                    {/* <h3>{id}</h3> */}
                     <h3>Duration: {category.name.includes("Kids") ? "45 minutes" : "60 minutes"}</h3>
                     <h2>{topic.name}</h2>
                     <h3>{category.name}</h3>
@@ -15,7 +15,7 @@ export default class ClassCard extends Component {
                 </div>
                 <div>
                     <button>View Details</button>
-                    <button>Sign Up</button>
+                    {/* <button>Sign Up</button> */}
                 </div>
             </div>
         )

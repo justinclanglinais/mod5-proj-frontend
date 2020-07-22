@@ -117,7 +117,7 @@ class App extends React.Component {
           <div>
             <Navbar loggedIn={this.state.loggedIn}/>
             {this.state.loggedIn ? <button onClick={this.handleLogout}>LOG OUT</button> : null}
-            <Route exact path="/" render={() => <h1>Home Page</h1>} />
+            <Route exact path="/" render={() => <h1>Jiu-Jitsu Class Management Home Page</h1>} />
             {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
             {/* <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> */}
             <Route exact path="/signup" component={Signup} />

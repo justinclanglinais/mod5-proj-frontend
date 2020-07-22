@@ -8,6 +8,9 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <div>
+                    <h1>Hello, {this.props.user.name}!</h1>
+                </div>
+                <div>
                     {this.props.user.sessions && <MyClasses sessions={this.props.user.sessions}/>}
                     {/* <MyClasses sessions={this.props.user.sessions}/> */}
 

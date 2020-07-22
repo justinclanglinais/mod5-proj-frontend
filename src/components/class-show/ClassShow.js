@@ -31,6 +31,7 @@ export default class ClassShow extends React.Component {
                 </div>
                 <div>
                     <button onClick={() => this.setState({edit : !this.state.edit})}>Edit Class</button>
+                    <button>Sign up for this Class!</button>
                 </div>
                 <div>
                     {this.state.edit ? <EditForm id={id} toggleEdit={this.toggleEdit} sendEdit={this.props.sendEdit} /> : null}
