@@ -33,9 +33,9 @@ const Navbar = (props) =>
     >Home</NavLink>
     {props.loggedIn ? null : <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>}
     {props.loggedIn ? null : <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>}
-    {/* {props.loggedIn ? <NavLink to="/login" onClick={console.log("click")} exact style={link} activeStyle={{background: 'grey'}}>Sign Out</NavLink> : null} */}
     {props.loggedIn ? <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink> : null }
     {props.loggedIn ? <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink> : null }
+    {/* {props.loggedIn ? <NavLink to="/logout" exact style={{...link, background: "darkblue"}} activeStyle={{background: 'grey'}}>Log Out</NavLink> : null } */}
   </div>;
 
 class App extends React.Component {
