@@ -1,14 +1,31 @@
 import React, {Component, Fragment} from 'react';
+import { Api } from '../services/Api.js'
 
 export default class Login extends Component {
+    state = {
+        error: false,
+        user: {
+            email: '',
+            password: ''
+        }
+    }
     
     handleChange = (e) => {
-        console.log(e.target.name, e.target.value)
+        this.setState({
+            user: {...this.state.user, [e.target.name]: e.target.value}
+        })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Wire up to login")
+        Api.auth.login(this.state.user).then(user => {
+            if (user.error) {
+                this.setState({error: true})
+            } else {
+                this.props.handleLogin(user)
+                this.props.history.push('/dashboard')
+            }
+        })
     }
 
     handleSignup = () => {
@@ -19,6 +36,7 @@ export default class Login extends Component {
         return (
             <div>
                 <h1>Login Page</h1>
+                {this.state.error ? <h1>Try Again :)</h1> : null}
                 <Fragment>
                     <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                         <div>

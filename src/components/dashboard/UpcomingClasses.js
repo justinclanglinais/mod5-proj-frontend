@@ -11,7 +11,7 @@ export default class UpcomingClasses extends Component {
                 </div>
                 <div>
                     {this.props.sessions && this.props.sessions.map(s=>{
-                        return <ClassCard thisSession={s}/>
+                        return <ClassCard key={s.id} thisSession={s}/>
                     })}
                 </div>
             </div>

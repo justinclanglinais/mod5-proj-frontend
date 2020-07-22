@@ -12,8 +12,8 @@ export default class MyClasses extends Component {
                     <h2>My Classes:</h2>
                 </div>
                 <div>
-                    <UpcomingClasses sessions={this.props.sessions}/>
-                    <PastClasses />
+                    {this.props.sessions && <UpcomingClasses sessions={this.props.sessions}/>}
+                    {/* <PastClasses /> */}
                 </div>
             </div>
         )
