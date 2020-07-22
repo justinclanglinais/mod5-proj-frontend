@@ -99,8 +99,8 @@ class App extends React.Component {
             <Navbar />
             <button onClick={this.handleLogout}>LOG OUT</button>
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
-            {/* {this.state.auth.user.user ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null } */}
-            <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} />
+            {this.state.auth.user.user ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
+            {/* <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
