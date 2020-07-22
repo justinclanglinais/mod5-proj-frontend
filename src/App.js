@@ -18,7 +18,7 @@ const link = {
   color: 'white',
 }
 
-const Navbar = () =>
+const Navbar = (props) =>
   <div>
     <NavLink
       to="/"
@@ -31,10 +31,11 @@ const Navbar = () =>
         background: 'grey'
       }}
     >Home</NavLink>
-    <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>
-    <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>
-    <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink>
-    <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink>
+    {props.loggedIn ? null : <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>}
+    {props.loggedIn ? null : <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>}
+    {/* {props.loggedIn ? <NavLink to="/login" onClick={console.log("click")} exact style={link} activeStyle={{background: 'grey'}}>Sign Out</NavLink> : null} */}
+    {props.loggedIn ? <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink> : null }
+    {props.loggedIn ? <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink> : null }
   </div>;
 
 class App extends React.Component {
@@ -43,20 +44,25 @@ class App extends React.Component {
       user: {}
     },
     user: {},
-    sessions: []
+    sessions: [],
+    loggedIn: false
   } 
 
   handleLogin = (user) => {
     const currentUser = { user : user }
     this.setState({
-      auth : currentUser
+      auth : currentUser,
+      loggedIn : true
     })
     console.log("handle login", user)
     localStorage.setItem('token', user.user.id)
   }
 
   handleLogout = () => {
-    this.setState( { auth: {user: {} } } )
+    this.setState({
+      auth: {user: {} },
+      loggedIn : false
+    })
     localStorage.removeItem('token')
   }
 
@@ -85,7 +91,8 @@ class App extends React.Component {
         const currentUser = { user : data }
         console.log("mount get current", data)
         this.setState({
-          auth : currentUser
+          auth : currentUser,
+          loggedIn : true
         })
       })
     }
@@ -96,10 +103,10 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <div>
-            <Navbar />
-            <button onClick={this.handleLogout}>LOG OUT</button>
+            <Navbar loggedIn={this.state.loggedIn}/>
+            {this.state.loggedIn ? <button onClick={this.handleLogout}>LOG OUT</button> : null}
             <Route exact path="/" render={() => <h1>Home Page</h1>} />
-            {this.state.auth.user.user ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
+            {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
             {/* <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" render={props => {
