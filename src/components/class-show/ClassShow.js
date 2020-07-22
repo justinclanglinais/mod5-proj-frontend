@@ -3,10 +3,14 @@ import InstructorCard from './InstructorCard.js'
 import Topic from './Topic.js'
 import EditForm from './EditForm.js'
 
-const ClassShow = ({match,sessions}) => {
-    {console.log(match,"inside Class Show")}
-    {console.log(sessions[match.params.id], "inside class Show")}
-    const { id, time , user , category , topic } = sessions[match.params.id - 1]
+export default class ClassShow extends React.Component {
+// const ClassShow = ({match,sessions}) => {
+    state = {
+        fields : {},
+        edit : false
+    }
+    render () {
+    const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
     return (
         <div>
             <div>
@@ -21,9 +25,12 @@ const ClassShow = ({match,sessions}) => {
                 <InstructorCard instructor={user}/>
             </div>
             <div>
-                {/* <EditForm /> */}
+                <button onClick={() => this.setState({edit : !this.state.edit})}>Edit Class</button>
+            </div>
+            <div>
+                {this.state.edit ? <EditForm /> : null}
             </div>
         </div>
     )
 }
-export default ClassShow
+}
