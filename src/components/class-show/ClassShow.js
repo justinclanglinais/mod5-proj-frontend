@@ -9,28 +9,33 @@ export default class ClassShow extends React.Component {
         fields : {},
         edit : false
     }
+    toggleEdit = () => {
+        this.setState({
+            edit : !this.state.edit
+        })
+    }
     render () {
-    const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
-    return (
-        <div>
+        const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
+        return (
             <div>
-                <h1>Class Show</h1>
-                <h2>{time} - {category.name}</h2>
-                <h1>{id}</h1>
+                <div>
+                    <h1>Class Show</h1>
+                    <h2>{time} - {category.name}</h2>
+                    <h1>{id}</h1>
+                </div>
+                <div>
+                    <Topic topic={topic}/>
+                </div>
+                <div>
+                    <InstructorCard instructor={user}/>
+                </div>
+                <div>
+                    <button onClick={() => this.setState({edit : !this.state.edit})}>Edit Class</button>
+                </div>
+                <div>
+                    {this.state.edit ? <EditForm toggleEdit={this.toggleEdit}/> : null}
+                </div>
             </div>
-            <div>
-                <Topic topic={topic}/>
-            </div>
-            <div>
-                <InstructorCard instructor={user}/>
-            </div>
-            <div>
-                <button onClick={() => this.setState({edit : !this.state.edit})}>Edit Class</button>
-            </div>
-            <div>
-                {this.state.edit ? <EditForm /> : null}
-            </div>
-        </div>
-    )
-}
+        )
+    }
 }
