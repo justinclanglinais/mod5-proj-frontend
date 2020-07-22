@@ -5,8 +5,9 @@ export default class InstructorCard extends Component {
         const { name, img_url, belt } = this.props.instructor
         return (
             <div>
-                <h3>{img_url}</h3>
+                <img src={img_url} />
                 <h1>{name}</h1>
+                (belt image)
                 <h3>{belt} belt</h3>
             </div>
         )
