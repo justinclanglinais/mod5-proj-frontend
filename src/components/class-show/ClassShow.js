@@ -1,7 +1,7 @@
 import React from 'react';
 import InstructorCard from './InstructorCard.js'
-import ParticipantList from './ParticipantList.js'
 import Topic from './Topic.js'
+import EditForm from './EditForm.js'
 
 const ClassShow = ({match,sessions}) => {
     {console.log(match,"inside Class Show")}
@@ -20,9 +20,9 @@ const ClassShow = ({match,sessions}) => {
             <div>
                 <InstructorCard instructor={user}/>
             </div>
-            {/* <div>
-                <ParticipantList />
-            </div> */}
+            <div>
+                {/* <EditForm /> */}
+            </div>
         </div>
     )
 }
