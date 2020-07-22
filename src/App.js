@@ -66,6 +66,18 @@ class App extends React.Component {
     localStorage.removeItem('token')
   }
 
+  sendEdit = (classObj) => {
+    fetch(`http://localhost:3000/sessions/${classObj.id}`,{
+      method : 'PATCH',
+      headers : {
+        "Content-Type" : "application/json",
+        Accept : "application/json"
+      },
+      body: JSON.stringify(classObj)
+    })
+    .then(r=>r.json()).then(d=>console.log(d))
+  }
+
   fetchClasses = () => {
     fetch(`http://localhost:3000/sessions`)
     .then(r=>r.json())
@@ -112,7 +124,7 @@ class App extends React.Component {
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
-            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions}/>} />
+            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit}/>} />
 
           </div>
         </Router>
