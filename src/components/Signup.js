@@ -46,7 +46,7 @@ export default class Signup extends Component {
 
 
         return (
-            <div>
+            <div className="Head">
                 <h1>Signup Page</h1>
                 <Fragment>
                     <form onChange={this.handleChange} onSubmit={this.handleSubmit}>

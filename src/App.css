@@ -1,3 +1,7 @@
+* {
+  font-family: "Karla"
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #b1b3b6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,6 +31,10 @@
 .App-link {
   color: #61dafb;
 }
+
+/* .Head {
+  font-family: 'Karla'
+} */
 
 @keyframes App-logo-spin {
   from {
