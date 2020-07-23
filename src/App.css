@@ -2,6 +2,17 @@
   font-family: "Karla"
 }
 
+h1 {
+  font-family: "Rubik";
+  font-size: 36px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+h3 {
+  font-size: 18px
+}
 .App {
   text-align: center;
 }
@@ -39,15 +50,52 @@
   justify-content: flex-end;
 }
 
-.row {
-  
+.container {
+  display: flex;
+}
+
+.container-child {
+  flex-grow: 1;
+}
+
+.class-index-container {
+  flex-grow: 1;
+  /* display: flex; */
+  /* justify-content: right; */
+}
+
+.login-container{
+  display: flex;
+  justify-content: left;
+}
+
+.login {
+  flex-grow: 1;
+}
+.login-bg-image {
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-overlay {
+  position: fixed;
+  z-index: 1000;
+  background-color: white;
+  padding: 24px 64px;
+  margin: 100px;
+}
+
+.form-field {
+  padding: 16px 8px;
+
 }
 
 .ClassCard {
   filter:drop-shadow(0px 4px 4px black);
   padding: 24px 64px;
   background-color: white
-
 }
 
 /* .Head {

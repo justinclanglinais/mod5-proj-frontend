@@ -9,7 +9,7 @@ export default class ClassCard extends Component {
             <div>
                 <div>
                     <Card className="ClassCard" style={{ width: '18rem' }} align='center'>
-                        <Card.Body className="CardBody">
+                        <Card.Body>
                             <Card.Title>{topic.name}</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">{category.name}</Card.Subtitle>
                             <Card.Text>{time}</Card.Text>

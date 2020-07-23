@@ -15,8 +15,8 @@ const ClassList = ({sessions}) => {
             </div>
             <div>
                 <Container>
-                    <Row className="row">
-                        <Col align="center">
+                    <Row>
+                        <Col align="right">
                             {renderClasses}
                         </Col>
                     </Row>
