@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import ClassCard from '../ClassCard.js'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 
 const ClassList = ({sessions}) => {
     const renderClasses = sessions.map(s => 
@@ -14,7 +14,13 @@ const ClassList = ({sessions}) => {
                 <h2>{`Showing (NUM) classes for (DATE) for (CATEGORY)`}</h2>
             </div>
             <div>
-                {renderClasses}
+                <Container>
+                    <Row className="row">
+                        <Col align="center">
+                            {renderClasses}
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         </div>
     )
