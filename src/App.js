@@ -67,15 +67,16 @@ class App extends React.Component {
   }
 
   sendEdit = (classObj) => {
-    fetch(`http://localhost:3000/sessions/${classObj.id}`,{
-      method : 'PATCH',
-      headers : {
-        "Content-Type" : "application/json",
-        Accept : "application/json"
-      },
-      body: JSON.stringify(classObj)
-    })
-    .then(r=>r.json()).then(d=>console.log(d))
+    console.log("send edit", classObj)
+    // fetch(`http://localhost:3000/sessions/${classObj.id}`,{
+    //   method : 'PATCH',
+    //   headers : {
+    //     "Content-Type" : "application/json",
+    //     Accept : "application/json"
+    //   },
+    //   body: JSON.stringify(classObj)
+    // })
+    // .then(r=>r.json()).then(d=>console.log(d))
   }
 
   fetchClasses = () => {

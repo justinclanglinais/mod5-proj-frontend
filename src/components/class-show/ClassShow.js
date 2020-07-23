@@ -15,11 +15,14 @@ export default class ClassShow extends React.Component {
             })
         }
         render () {
-            const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
+            const idx = this.props.match.params.id - 1
+            const { id, time , user , category , topic } = this.props.sessions[idx]
+            const session = this.props.sessions[idx]
             return (
             <div>
                 <div>
                     <h1>Class Show</h1>
+                    <h2>{id}</h2>
                     <h2>{time} - {category.name}</h2>
                     {/* <h1>{id}</h1> */}
                 </div>
