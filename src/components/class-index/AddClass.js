@@ -31,7 +31,7 @@ export default class AddClass extends React.Component {
                     </div> */}
                     <div>
                         <label>Topic</label>
-                        <select name="topic_id">
+                        <select name="topic_id" >
                             {topics.map(topic=> {
                                 return <option value={topic.id}>{topic.name}</option>
                             })}
