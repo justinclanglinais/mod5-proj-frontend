@@ -33,5 +33,6 @@ export const Api = {
     },
     sessions: {
         fetchSessions
-    }
+    },
+    API_ROOT
 }
