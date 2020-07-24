@@ -8,6 +8,15 @@ const headers = {
 const fetchSessions = () => {
     return fetch(`${API_ROOT}/sessions`).then(r=>r.json())
 }
+const fetchUsers = () => {
+    return fetch(`${API_ROOT}/api/v1/users`).then(r=>r.json())
+}
+const fetchTopics = () => {
+    return fetch(`${API_ROOT}/topics`).then(r=>r.json())
+}
+const fetchCategories = () => {
+    return fetch(`${API_ROOT}/categories`).then(r=>r.json())
+}
 
 const login = (data) => {
     return fetch(`${API_ROOT}/api/v1/login`, {
@@ -33,5 +42,14 @@ export const Api = {
     },
     sessions: {
         fetchSessions
+    },
+    users: {
+        fetchUsers
+    },
+    topics: {
+        fetchTopics
+    },
+    categories: {
+        fetchCategories
     }
 }

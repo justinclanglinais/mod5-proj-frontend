@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import ClassCard from '../ClassCard.js'
+import AddClass from './AddClass.js'
 import { Container, Row, Col } from 'react-bootstrap'
 
-const ClassList = ({sessions}) => {
+const ClassList = ({sessions, users, topics, categories}) => {
     const renderClasses = sessions.map(s => 
         // <div><Link key={s.id} to={`/classes/${s.id}`}><ClassCard thisSession={s}/></Link></div>
         <ClassCard thisSession={s}/>
@@ -12,6 +13,9 @@ const ClassList = ({sessions}) => {
         <div>
             <div>
                 <h2>{`Showing (NUM) classes for (DATE) for (CATEGORY)`}</h2>
+            </div>
+            <div>
+                <AddClass users={users} topics={topics} categories={categories}/>
             </div>
             <div>
                 <Container>
