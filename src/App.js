@@ -67,7 +67,7 @@ class App extends React.Component {
     })
     localStorage.removeItem('token')
   }
-
+  
   sendEdit = (classObj) => {
     fetch(`http://localhost:3000/sessions/${classObj.id}`,{
       method : 'PATCH',
@@ -79,7 +79,12 @@ class App extends React.Component {
     })
     .then(r=>r.json()).then(d=>console.log(d))
   }
-
+  
+  addSession = (classObj) => {
+    console.log(classObj)
+    Api.sessions.addSession(classObj)
+  }
+  
   fetchAllData = () => {
     Api.sessions.fetchSessions().then(data=>{
       this.setState({
@@ -102,7 +107,7 @@ class App extends React.Component {
       })
     })
   }
-
+  
   componentDidMount = () => {
     this.fetchAllData()
     const token = localStorage.getItem('token')
@@ -130,7 +135,7 @@ class App extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
-            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} />} />
+            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} />} />
             <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit}/>} />
 
           </div>

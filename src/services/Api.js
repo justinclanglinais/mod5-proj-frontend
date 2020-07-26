@@ -35,13 +35,23 @@ const getCurrentUser = () => {
     .then(res=>res.json())
 }
 
+const addSession = (session) => {
+    return fetch(`${API_ROOT}/sessions`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(session)
+    })
+    .then(res=>res.json())
+}
+
 export const Api = {
     auth: {
         login,
         getCurrentUser
     },
     sessions: {
-        fetchSessions
+        fetchSessions,
+        addSession
     },
     users: {
         fetchUsers

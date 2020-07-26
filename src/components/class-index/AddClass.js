@@ -6,7 +6,7 @@ class AddClass extends React.Component {
     state = {
         topic_id : 1,
         category_id : 1,
-        user_id : 1,
+        user_id : 1
     }
     // handleDateChange = (e) => {
     //     // console.log(e)
@@ -22,7 +22,7 @@ class AddClass extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addClass(this.state)
+        this.props.addSession(this.state)
     }
     render () {
         const {users, topics, categories} = this.props
