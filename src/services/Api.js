@@ -30,7 +30,7 @@ const login = (data) => {
 const getCurrentUser = () => {
     const token = localStorage.getItem('token')
     return fetch(`${API_ROOT}/api/v1/current_user`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: token }
     })
     .then(res=>res.json())
 }
@@ -40,6 +40,18 @@ const addSession = (session) => {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(session)
+    })
+    .then(res=>res.json())
+}
+
+const addEnrollment = (sessionId, loggedUserId) => {
+    return fetch(`${API_ROOT}/enrollments`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({
+            user_id: loggedUserId,
+            session_id: sessionId
+        })
     })
     .then(res=>res.json())
 }
@@ -61,5 +73,8 @@ export const Api = {
     },
     categories: {
         fetchCategories
+    },
+    enrollments: {
+        addEnrollment
     }
 }
