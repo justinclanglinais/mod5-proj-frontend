@@ -22,7 +22,7 @@ class AddClass extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addClass(this.state)
+        this.props.addSession(this.state)
     }
     render () {
         const {users, topics, categories} = this.props

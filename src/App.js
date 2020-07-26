@@ -82,6 +82,7 @@ class App extends React.Component {
   
   addSession = (classObj) => {
     console.log(classObj)
+    Api.sessions.addSession(classObj)
   }
   
   fetchAllData = () => {
