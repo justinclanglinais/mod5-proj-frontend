@@ -30,7 +30,7 @@ const login = (data) => {
 const getCurrentUser = () => {
     const token = localStorage.getItem('token')
     return fetch(`${API_ROOT}/api/v1/current_user`, {
-        headers: { Authorization: token }
+        headers: { Authorization: `Bearer ${token}` }
     })
     .then(res=>res.json())
 }

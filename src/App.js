@@ -57,7 +57,7 @@ class App extends React.Component {
       loggedIn : true
     })
     console.log("handle login", user)
-    localStorage.setItem('token', user.user.id)
+    localStorage.setItem('token', user.jwt)
   }
 
   handleLogout = () => {
