@@ -86,6 +86,11 @@ class App extends React.Component {
 
   signUpSession = (sessionId) => {
     Api.enrollments.addEnrollment(sessionId, this.state.auth.user.user.id)
+    .then(Api.sessions.fetchSessions().then(data=>{
+      this.setState({
+        sessions: data
+      })
+    }))
   }
   
   fetchAllData = () => {
