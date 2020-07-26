@@ -6,7 +6,7 @@ class AddClass extends React.Component {
     state = {
         topic_id : 1,
         category_id : 1,
-        user_id : 1,
+        user_id : 1
     }
     // handleDateChange = (e) => {
     //     // console.log(e)
