@@ -13,7 +13,8 @@ export default class ClassCard extends Component {
                 <div>
                     <Card className="ClassCard" style={{ width: '18rem' }} align='center'>
                         <Card.Body>
-                            <Card.Text>{time.toString()}</Card.Text>
+                            {/* <Card.Text>{new Intl.DateTimeFormat("en-US").format(time)}</Card.Text> */}
+                            <Card.Text>{time}</Card.Text>
                             <Card.Title>{topic.name}</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">{category.name}</Card.Subtitle>
                             <Card.Subtitle className="mb-2 text-muted">Instructor: {user.name}</Card.Subtitle>
