@@ -140,7 +140,7 @@ class App extends React.Component {
             <Route exact path="/" render={() => <h1>Jiu-Jitsu Class Management Home Page</h1>} />
             {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
             {/* <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> */}
-            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/signup" render={routerProps => <Signup {...routerProps} handleLogin={this.handleLogin} />} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
             <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} signUpSession={this.signUpSession} user={this.state.auth.user.user}/>} />

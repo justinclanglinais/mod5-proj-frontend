@@ -26,7 +26,14 @@ export default class Signup extends Component {
         e.preventDefault()
         const user = {...this.state}
         // console.log(user)
-        Api.users.addUser(user).then(d=>console.log(d))
+        Api.users.addUser(user).then(user=> {
+            if (user.error) {
+                this.setState({error: true})
+            } else {
+                this.props.handleLogin(user)
+                this.props.history.push('/dashboard')
+            }
+        })
     }
 
     render () {
