@@ -1,3 +1,5 @@
+
+
 const API_ROOT = `http://localhost:3000`
 
 const headers = {
@@ -35,6 +37,14 @@ const getCurrentUser = () => {
     .then(res=>res.json())
 }
 
+const addUser = (user) => {
+    return fetch(`${API_ROOT}/api/v1/users`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(user)
+    })
+    .then(res=>res.json())
+}
 const addSession = (session) => {
     return fetch(`${API_ROOT}/sessions`, {
         method: 'POST',
@@ -66,7 +76,8 @@ export const Api = {
         addSession
     },
     users: {
-        fetchUsers
+        fetchUsers,
+        addUser
     },
     topics: {
         fetchTopics
