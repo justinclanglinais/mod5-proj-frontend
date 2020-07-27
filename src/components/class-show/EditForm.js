@@ -6,6 +6,7 @@ export default class EditForm extends React.Component {
     }
     componentDidMount = () => {
         this.setState({
+            id : this.props.id,
             user_id : this.props.user.id,
             topic_id : this.props.topic.id,
             category_id : this.props.category.id
@@ -18,10 +19,9 @@ export default class EditForm extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Submitting edit to class...")
-        console.log(this.props.user)
-        // this.props.toggleEdit()
-        // this.props.sendEdit(this.state, this.props.id)
+        console.log("Submitting edit to session...")
+        this.props.toggleEdit()
+        this.props.sendEdit(this.state)
     }
     render () {
         return (

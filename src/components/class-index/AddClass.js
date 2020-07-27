@@ -8,13 +8,6 @@ class AddClass extends React.Component {
         category_id : 1,
         user_id : 1
     }
-    // handleDateChange = (e) => {
-    //     // console.log(e)
-    //     this.setState({
-    //         dateTime: e.target.value
-    //     })
-    //     console.log(this.state.dateTime)
-    // }
     handleChange = (e) => {
         this.setState({
             ...this.state, [e.target.name] : e.target.value
@@ -29,9 +22,6 @@ class AddClass extends React.Component {
         return (
             <div>
                 <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-                    {/* <div>
-                        <DateTimePicker onChange={this.handleDateChange}/>
-                    </div> */}
                     <div>
                         <label>Topic</label>
                         <select name="topic_id" value={this.state.topic_id}>

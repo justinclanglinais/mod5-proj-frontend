@@ -68,14 +68,14 @@ class App extends React.Component {
     localStorage.removeItem('token')
   }
   
-  sendEdit = (classObj, id) => {
-    fetch(`http://localhost:3000/sessions/${classObj.id}`,{
+  sendEdit = (session) => {
+    fetch(`http://localhost:3000/sessions/${session.id}`,{
       method : 'PATCH',
       headers : {
         "Content-Type" : "application/json",
         Accept : "application/json"
       },
-      body: JSON.stringify(classObj)
+      body: JSON.stringify(session)
     })
     .then(r=>r.json()).then(d=>console.log(d))
   }
