@@ -68,7 +68,7 @@ class App extends React.Component {
     localStorage.removeItem('token')
   }
   
-  sendEdit = (classObj) => {
+  sendEdit = (classObj, id) => {
     fetch(`http://localhost:3000/sessions/${classObj.id}`,{
       method : 'PATCH',
       headers : {

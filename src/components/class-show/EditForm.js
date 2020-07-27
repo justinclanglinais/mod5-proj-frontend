@@ -4,17 +4,24 @@ export default class EditForm extends React.Component {
     state = {
 
     }
+    componentDidMount = () => {
+        this.setState({
+            user_id : this.props.user.id,
+            topic_id : this.props.topic.id,
+            category_id : this.props.category.id
+        })
+    }
     handleChange = (e) => {
         this.setState({
-            ...this.state.user, [e.target.name]: e.target.value, id: this.props.id
+            ...this.state.user, [e.target.name]: e.target.value
         })
     }
     handleSubmit = (e) => {
         e.preventDefault()
         console.log("Submitting edit to class...")
-        this.props.toggleEdit()
-        // this.props.sendEdit(this.state)
-        console.log(this.state)
+        console.log(this.props.user)
+        // this.props.toggleEdit()
+        // this.props.sendEdit(this.state, this.props.id)
     }
     render () {
         return (
