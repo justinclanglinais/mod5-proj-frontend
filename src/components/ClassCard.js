@@ -20,8 +20,8 @@ export default class ClassCard extends Component {
                                 <Card.Subtitle className="mb-2 text-muted">Instructor: {user.name}</Card.Subtitle>
                             </div>
                             <div className="card-buttons">
-                                <Link to={`/classes/${id}`}>View Details</Link>
-                                <button onClick={this.handleSignUpSession}>Sign Up</button>
+                            <Link className="card-button-2" to={`/classes/${id}`}>View Details</Link>
+                                <button className="card-button" onClick={this.handleSignUpSession}>Sign Up</button>
                             </div>
                         {/* </div> */}
                     </Card>

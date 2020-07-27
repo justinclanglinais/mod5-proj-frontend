@@ -7,7 +7,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 const ClassList = ({sessions, users, topics, categories, addSession, signUpSession, user}) => {
     const renderClasses = sessions.map(s => 
         // <div><Link key={s.id} to={`/classes/${s.id}`}><ClassCard thisSession={s}/></Link></div>
-        <ClassCard thisSession={s} signUpSession={signUpSession} user={user} />
+        <div>
+            <ClassCard thisSession={s} signUpSession={signUpSession} user={user} />
+            <p></p>
+        </div>
     )
     return (
         <div>
