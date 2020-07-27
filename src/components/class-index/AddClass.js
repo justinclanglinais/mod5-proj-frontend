@@ -50,10 +50,6 @@ class AddClass extends React.Component {
                         <button>Add Class</button>
                     </div>
                 </form>
-                {this.state.topic_id}
-                {this.state.category_id}
-                {this.state.user_id}
-                
             </div>
         )
     }

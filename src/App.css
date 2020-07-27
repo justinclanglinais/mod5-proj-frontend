@@ -75,9 +75,10 @@ h3 {
 }
 
 .class-index-container {
+  flex-grow: 2;
+}
+.class-index-calendar {
   flex-grow: 1;
-  /* display: flex; */
-  /* justify-content: right; */
 }
 
 .login-container{

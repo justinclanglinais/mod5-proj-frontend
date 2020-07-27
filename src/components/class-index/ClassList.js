@@ -13,16 +13,14 @@ const ClassList = ({sessions, users, topics, categories, addSession, signUpSessi
         </div>
     )
     return (
-        <div>
-            <div>
-                <h2>{`Showing (NUM) classes for (DATE) for (CATEGORY)`}</h2>
-            </div>
-            <div>
+        <div classname="container-row">
+            <div classname="card-body">
                 <AddClass users={users} topics={topics} categories={categories} addSession={addSession}  />
             </div>
-            <div>
+            <div classname="card-buttons">
                 <Container>
                     <Row>
+                        <h2>Scheduled Classes</h2>
                         <Col align="right">
                             {renderClasses}
                         </Col>
