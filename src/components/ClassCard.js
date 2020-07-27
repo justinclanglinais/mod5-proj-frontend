@@ -10,16 +10,20 @@ export default class ClassCard extends Component {
         const { id, time, topic, category, user } = this.props.thisSession
         return (
             <div>
-                <div>
-                    <Card className="ClassCard" style={{ width: '18rem' }} align='center'>
-                        <Card.Body>
-                            <Card.Text>{time}</Card.Text>
-                            <Card.Title>{topic.name}</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">{category.name}</Card.Subtitle>
-                            <Card.Subtitle className="mb-2 text-muted">Instructor: {user.name}</Card.Subtitle>
-                            <Link to={`/classes/${id}`}>View Details</Link>
-                            <button onClick={this.handleSignUpSession}>Sign Up</button>
-                        </Card.Body>
+                <div className="ClassCard">
+                    <Card  style={{ width: '18rem' }} align='center'>
+                        {/* <div className="container-row"> */}
+                            <div className="card-body">
+                                {time} - {category.name.includes("Kids") ? "(45 min)" : "(60 min)"}
+                                <h3>{topic.name}</h3>
+                                <Card.Title>{category.name}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">Instructor: {user.name}</Card.Subtitle>
+                            </div>
+                            <div className="card-buttons">
+                                <Link to={`/classes/${id}`}>View Details</Link>
+                                <button onClick={this.handleSignUpSession}>Sign Up</button>
+                            </div>
+                        {/* </div> */}
                     </Card>
                 </div>
             </div>
