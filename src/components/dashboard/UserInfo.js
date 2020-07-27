@@ -8,7 +8,7 @@ export default class UserInfo extends Component {
             <div>
                 <h1>Student Profile</h1>
                 <div>
-                    <img src={img_url} alt="student"></img>
+                    <img src={img_url} alt="student" height="240"></img>
                 </div>
                 <div>
                     <h2>{name}</h2>
