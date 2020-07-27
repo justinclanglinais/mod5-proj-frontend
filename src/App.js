@@ -57,7 +57,7 @@ class App extends React.Component {
       loggedIn : true
     })
     console.log("handle login", user)
-    localStorage.setItem('token', user.jwt)
+    localStorage.setItem('token', user.user.id)
   }
 
   handleLogout = () => {
@@ -68,21 +68,29 @@ class App extends React.Component {
     localStorage.removeItem('token')
   }
   
-  sendEdit = (classObj) => {
-    fetch(`http://localhost:3000/sessions/${classObj.id}`,{
+  sendEdit = (session) => {
+    fetch(`http://localhost:3000/sessions/${session.id}`,{
       method : 'PATCH',
       headers : {
         "Content-Type" : "application/json",
         Accept : "application/json"
       },
-      body: JSON.stringify(classObj)
+      body: JSON.stringify(session)
     })
     .then(r=>r.json()).then(d=>console.log(d))
   }
   
   addSession = (classObj) => {
-    console.log(classObj)
     Api.sessions.addSession(classObj)
+  }
+
+  signUpSession = (sessionId) => {
+    Api.enrollments.addEnrollment(sessionId, this.state.auth.user.user.id)
+    .then(Api.sessions.fetchSessions().then(data=>{
+      this.setState({
+        sessions: data
+      })
+    }))
   }
   
   fetchAllData = () => {
@@ -109,7 +117,6 @@ class App extends React.Component {
   }
   
   componentDidMount = () => {
-    this.fetchAllData()
     const token = localStorage.getItem('token')
     if (token) {
       Api.auth.getCurrentUser().then(data=>{
@@ -120,6 +127,7 @@ class App extends React.Component {
         })
       })
     }
+    this.fetchAllData()
   }
 
   render() {
@@ -135,8 +143,8 @@ class App extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
-            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} />} />
-            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit}/>} />
+            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} signUpSession={this.signUpSession} user={this.state.auth.user.user}/>} />
+            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit} users={this.state.users} topics={this.state.topics} categories={this.state.categories}/>} />
 
           </div>
         </Router>
