@@ -3,6 +3,7 @@ import InstructorCard from './InstructorCard.js'
 import Topic from './Topic.js'
 import EditForm from './EditForm.js'
 
+
 export default class ClassShow extends React.Component {
     // const ClassShow = ({match,sessions}) => {
         state = {
