@@ -144,7 +144,7 @@ class App extends React.Component {
             <Route exact path="/signup" render={routerProps => <Signup {...routerProps} handleLogin={this.handleLogin} />} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
-            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} signUpSession={this.signUpSession} user={this.state.auth.user.user}/>} />
+            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} signUpSession={this.signUpSession} user={this.state.auth.user.user} mySessions={this.state.auth.user.user.sessions}/>} />
             <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit} users={this.state.users} topics={this.state.topics} categories={this.state.categories}/>} />
 
           </div>

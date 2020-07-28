@@ -8,6 +8,7 @@ export default class ClassCard extends Component {
     }
     render() {
         const { id, time, topic, category, user } = this.props.thisSession
+        console.log(user)
         return (
             <div className="ClassCard">
                 <div className="container-row">
