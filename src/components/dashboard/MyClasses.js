@@ -9,7 +9,7 @@ export default class MyClasses extends Component {
         return (
             <div>
                 <div>
-                    <h2>My Classes:</h2>
+                    <h2>{this.props.username.split(' ')[0]}'s Upcoming Classes:</h2>
                 </div>
                 <div>
                     {this.props.sessions && <UpcomingClasses sessions={this.props.sessions}/>}

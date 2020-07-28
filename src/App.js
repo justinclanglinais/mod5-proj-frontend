@@ -14,13 +14,13 @@ const link = {
   width: '100px',
   padding: '12px',
   margin: '0 6px 6px',
-  background: 'blue',
+  background: 'black',
   textDecoration: 'none',
   color: 'white',
 }
 
 const Navbar = (props) =>
-  <div>
+  <div className="navigation">
     <NavLink
       to="/"
       /* set exact so it knows to only set activeStyle when route is deeply equal to link */
@@ -44,8 +44,10 @@ class App extends React.Component {
     auth: {
       user: {}
     },
-    user: {},
     sessions: [],
+    topics: [],
+    categories: [],
+    users: [],
     loggedIn: false
   } 
 
@@ -66,49 +68,67 @@ class App extends React.Component {
     })
     localStorage.removeItem('token')
   }
-
-  sendEdit = (classObj) => {
-    fetch(`http://localhost:3000/sessions/${classObj.id}`,{
+  
+  sendEdit = (session) => {
+    fetch(`http://localhost:3000/sessions/${session.id}`,{
       method : 'PATCH',
       headers : {
         "Content-Type" : "application/json",
         Accept : "application/json"
       },
-      body: JSON.stringify(classObj)
+      body: JSON.stringify(session)
     })
     .then(r=>r.json()).then(d=>console.log(d))
   }
-
-  fetchClasses = () => {
-    fetch(`http://localhost:3000/sessions`)
-    .then(r=>r.json())
-    .then(data=>
-      this.setState({...this.state, sessions : data})    
-    )
+  
+  addSession = (classObj) => {
+    Api.sessions.addSession(classObj)
   }
 
-  fetchUser = () => {
-    fetch('http://localhost:3000/api/v1/users/1')
-    .then(r=>r.json())
-    .then(d=>
-      this.setState({...this.state, user : d})
-    )
+  signUpSession = (sessionId) => {
+    Api.enrollments.addEnrollment(sessionId, this.state.auth.user.user.id)
+    .then(Api.sessions.fetchSessions().then(data=>{
+      this.setState({
+        sessions: data
+      })
+    }))
   }
-
+  
+  fetchAllData = () => {
+    Api.sessions.fetchSessions().then(data=>{
+      this.setState({
+        sessions: data
+      })
+    })
+    Api.users.fetchUsers().then(data=>{
+      this.setState({
+        users: data
+      })
+    })
+    Api.topics.fetchTopics().then(data=>{
+      this.setState({
+        topics: data
+      })
+    })
+    Api.categories.fetchCategories().then(data=>{
+      this.setState({
+        categories: data
+      })
+    })
+  }
+  
   componentDidMount = () => {
-    this.fetchUser()
-    this.fetchClasses()
     const token = localStorage.getItem('token')
     if (token) {
       Api.auth.getCurrentUser().then(data=>{
         const currentUser = { user : data }
-        console.log("mount get current", data)
         this.setState({
           auth : currentUser,
           loggedIn : true
         })
       })
     }
+    this.fetchAllData()
   }
 
   render() {
@@ -121,11 +141,11 @@ class App extends React.Component {
             <Route exact path="/" render={() => <h1>Jiu-Jitsu Class Management Home Page</h1>} />
             {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
             {/* <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> */}
-            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/signup" render={routerProps => <Signup {...routerProps} handleLogin={this.handleLogin} />} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}} />
-            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} />} />
-            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit}/>} />
+            <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} signUpSession={this.signUpSession} user={this.state.auth.user.user}/>} />
+            <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit} users={this.state.users} topics={this.state.topics} categories={this.state.categories}/>} />
 
           </div>
         </Router>

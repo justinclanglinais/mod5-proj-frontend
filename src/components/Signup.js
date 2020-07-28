@@ -1,4 +1,6 @@
 import React, {Component, Fragment} from 'react';
+import { Api } from '../services/Api.js'
+
 let localUsersAPI = "http://localhost:3000/api/v1/users"
 
 export default class Signup extends Component {
@@ -6,7 +8,7 @@ export default class Signup extends Component {
         user: {
             email: '',
             password: '',
-            isAdmin: true,
+            isAdmin: false,
             name: '',
             age: '',
             img_url: '',
@@ -23,23 +25,15 @@ export default class Signup extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const user = {...this.state}
-        this.addUser(user)
-    }
-
-    handleSignup = () => {
-        console.log("Route to Signup")
-    }
-
-    addUser = user => {
-        fetch(localUsersAPI, {
-            method : "POST",
-            headers: {
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(user)
+        // console.log(user)
+        Api.users.addUser(user).then(user=> {
+            if (user.error) {
+                this.setState({error: true})
+            } else {
+                this.props.handleLogin(user)
+                this.props.history.push('/dashboard')
+            }
         })
-        .then( resp => resp.json())
-        .then( data => console.log(data))
     }
 
     render () {
@@ -73,6 +67,7 @@ export default class Signup extends Component {
                         <div>
                             <label>Your Belt:</label>
                             <select name="belt">
+                                <option value={null}>-- select belt --</option>
                                 <option value="white">White</option>
                                 <option value="grey">Grey</option>
                                 <option value="yellow">Yellow</option>
