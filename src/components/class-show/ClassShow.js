@@ -25,7 +25,7 @@ export default class ClassShow extends React.Component {
                         <h1>{category.name}</h1>
                     </div>
                     <div >
-                        <ReactPlayer url="https://www.youtube.com/watch?v=BMW5hr1ixKQ" />
+                        <ReactPlayer url={topic.vid_url} />
                     </div>
                 </div>
                 <div className="container-child">
