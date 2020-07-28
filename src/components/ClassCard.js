@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import {Card} from 'react-bootstrap'
+import TimeConverter from '../services/TimeConverter.js'
 
 export default class ClassCard extends Component {
     handleSignUpSession = () => {
@@ -8,6 +9,7 @@ export default class ClassCard extends Component {
     }
     render() {
         const { id, time, topic, category, user, mySessions } = this.props.thisSession
+        console.log(time)
         return (
             <div className="ClassCard">
                 <div className="container-row">
