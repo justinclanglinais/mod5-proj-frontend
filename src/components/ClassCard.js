@@ -19,7 +19,7 @@ export default class ClassCard extends Component {
                     </div>
                     <div className="card-buttons">
                         <Link className="card-button-2" to={`/classes/${id}`}>View Details</Link>
-                        <button className="card-button" onClick={this.handleSignUpSession}>Sign Up</button>
+                        {this.props.dashboard ? null : <button className="card-button" onClick={this.handleSignUpSession}>Sign Up</button>}
                     </div>
                 </div>
             </div>

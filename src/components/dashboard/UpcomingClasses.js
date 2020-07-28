@@ -7,7 +7,7 @@ export default class UpcomingClasses extends Component {
     render() {
         const renderClasses = this.props.sessions && this.props.sessions.map(s=>
             <div>
-                <ClassCard key={s.id} thisSession={s}/>
+                <ClassCard key={s.id} thisSession={s} dashboard={this.props.dashboard}/>
                 <p></p>
             </div>
         )
