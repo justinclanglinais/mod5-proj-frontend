@@ -16,8 +16,17 @@ export default class ClassShow extends React.Component {
             edit : !this.state.edit
         })
     }
+    handleSignUpSession = (id) => {
+        this.props.signUpSession(id)
+    }
+    handleDelete = (id) => {
+        this.props.deleteSession(id)
+        this.props.history.push('/classes')
+    }
     render () {
-        const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
+        console.log(this.props.sessions, this.props.match)
+        // const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
+        const { id, time , user , category , topic } = this.props.sessions.find(s => s.id == this.props.match.params.id)
         return (
             <div classname="container-show">
                 <div classname="container-child">
@@ -44,7 +53,9 @@ export default class ClassShow extends React.Component {
                     </div>
                     <div>
                         <button onClick={() => this.setState({edit : !this.state.edit})}>Edit Class</button>
-                        <button onClick={() => console.log(this.props)}>Sign up for this Class!</button>
+                        <button onClick={() => this.handleDelete(parseInt(id))}>Delete Class</button>
+                        {id}
+                        <button onClick={() => this.handleSignUpSession(id)}>Sign up for this Class!</button>
                     </div>
                     <div>
                         {this.state.edit ? <EditForm id={id} user={user} category={category} topic={topic} toggleEdit={this.toggleEdit} sendEdit={this.props.sendEdit} users={this.props.users} topics={this.props.topics} categories={this.props.categories}/> : null}

@@ -51,6 +51,11 @@ const addSession = (session) => {
     })
     .then(res=>res.json())
 }
+const deleteSession = (id) => {
+    return fetch(`${API_ROOT}/sessions/${id}`, {
+        method: 'DELETE'
+    })
+}
 
 const addEnrollment = (sessionId, loggedUserId) => {
     return fetch(`${API_ROOT}/enrollments`, {
@@ -71,7 +76,8 @@ export const Api = {
     },
     sessions: {
         fetchSessions,
-        addSession
+        addSession,
+        deleteSession
     },
     users: {
         fetchUsers,
