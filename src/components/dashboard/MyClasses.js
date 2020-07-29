@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import UpcomingClasses from './UpcomingClasses.js'
-import PastClasses from './PastClasses.js'
-
 
 export default class MyClasses extends Component {
 

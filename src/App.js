@@ -8,8 +8,6 @@ import Dashboard from './components/dashboard/Dashboard.js'
 import ClassShow from './components/class-show/ClassShow.js'
 import { Api } from './services/Api.js'
 
-
-
 const link = {
   width: '100px',
   padding: '12px',

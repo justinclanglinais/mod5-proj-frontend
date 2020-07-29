@@ -51,6 +51,7 @@ const getDay = (obj) => {
     let arr = dateTime.toString().split(" ")
     let formattedDay = formatDay(arr[0])
     let formattedMonth = formatMonth(arr[1])
+    return `${formattedDay} - ${formattedMonth} ${arr[2]}, ${arr[3]}`
 }
 
 const getTime = (obj) => {
@@ -58,5 +59,5 @@ const getTime = (obj) => {
 }
 
 export const TimeConverter = {
-    
+    getDay
 }
