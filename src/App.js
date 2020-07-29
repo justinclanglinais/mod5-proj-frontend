@@ -34,7 +34,6 @@ const Navbar = (props) =>
     {props.loggedIn ? null : <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>}
     {props.loggedIn ? <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink> : null }
     {props.loggedIn ? <NavLink to="/classes" exact style={link} activeStyle={{background: 'grey'}}>Classes</NavLink> : null }
-    {/* {props.loggedIn ? <NavLink to="/logout" exact style={{...link, background: "darkblue"}} activeStyle={{background: 'grey'}}>Log Out</NavLink> : null } */}
   </div>;
 
 class App extends React.Component {
@@ -162,7 +161,8 @@ class App extends React.Component {
             {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
             <Route exact path="/signup" render={routerProps => <Signup {...routerProps} handleLogin={this.handleLogin} />} />
             <Route exact path="/login" render={props => {
-              return <Login {...props} handleLogin={this.handleLogin} />}} />
+              return <Login {...props} handleLogin={this.handleLogin} />}
+              } />
             {this.state.loggedIn ? <Route exact path="/classes" render={routerProps => <ClassIndex {...routerProps} sessions={this.state.sessions} users={this.state.users} topics={this.state.topics} categories={this.state.categories} addSession={this.addSession} signUpSession={this.signUpSession} user={this.state.auth.user.user} />} /> : null }
             <Route path={`/classes/:id`} render={routerProps => <ClassShow {...routerProps} sessions={this.state.sessions} sendEdit={this.sendEdit} users={this.state.users} topics={this.state.topics} categories={this.state.categories} signUpSession={this.signUpSession} deleteSession={this.deleteSession} />} />
           </div>
