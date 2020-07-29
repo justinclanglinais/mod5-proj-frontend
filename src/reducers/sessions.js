@@ -20,4 +20,4 @@ function sessionsReducer(state = { sessions: [], requesting: false }, action) {
   }
 };
 
-
+export default sessionsReducer

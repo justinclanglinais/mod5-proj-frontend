@@ -6,8 +6,9 @@ import Signup from './components/Signup.js'
 import ClassIndex from './components/class-index/ClassIndex.js'
 import Dashboard from './components/dashboard/Dashboard.js'
 import ClassShow from './components/class-show/ClassShow.js'
+import { connect } from 'react-redux'
 import { Api } from './services/Api.js'
-import { fetchSessions } from '../actions/fetchSessions'
+import { fetchSessions } from './actions/fetchSessions'
 
 
 const link = {
@@ -95,11 +96,11 @@ class App extends React.Component {
   }
   
   fetchAllData = () => {
-    Api.sessions.fetchSessions().then(data=>{
-      this.setState({
-        sessions: data
-      })
-    })
+    // Api.sessions.fetchSessions().then(data=>{
+    //   this.setState({
+    //     sessions: data
+    //   })
+    // })
     Api.users.fetchUsers().then(data=>{
       this.setState({
         users: data
@@ -128,6 +129,8 @@ class App extends React.Component {
         })
       })
     }
+    this.props.fetchSessions()
+
     this.fetchAllData()
   }
 
