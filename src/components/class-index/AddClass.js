@@ -1,5 +1,4 @@
 import React from 'react'
-import DateTimePicker from 'react-datetime-picker'
 import { connect } from 'react-redux';
 
 class AddClass extends React.Component {

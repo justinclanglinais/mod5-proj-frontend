@@ -1,8 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import { Api } from '../services/Api.js'
 
-let localUsersAPI = "http://localhost:3000/api/v1/users"
-
 export default class Signup extends Component {
     state = {
         user: {

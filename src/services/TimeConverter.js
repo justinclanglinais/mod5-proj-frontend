@@ -59,7 +59,6 @@ const getTime = (obj) => {
     let arr = dateTime.toString().split(" ")
     let time = arr[4]
     let timeArr = time.split(":")
-    let ampm = ''
     if (timeArr[0] > 12) {
         return `${timeArr[0]-12}:${timeArr[1]} PM`
     } else if (timeArr[0] < 10) {

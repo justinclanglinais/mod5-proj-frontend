@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import ClassCard from '../ClassCard.js'
 import AddClass from './AddClass.js'
 import { Container, Row, Col } from 'react-bootstrap'

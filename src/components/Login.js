@@ -66,7 +66,7 @@ export default class Login extends Component {
                         Open daily 11am-9pm</h3>
                     </div>
                     <div>
-                        <img src="https://c1.staticflickr.com/8/7207/6879287963_b364f49385_b.jpg" width="680px" />
+                        <img src="https://c1.staticflickr.com/8/7207/6879287963_b364f49385_b.jpg" width="680px" alt="kids rasslin"/>
                     </div>
                 </div>
             </div>

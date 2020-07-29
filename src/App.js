@@ -55,7 +55,6 @@ class App extends React.Component {
       auth : currentUser,
       loggedIn : true
     })
-    console.log("handle login", user)
     localStorage.setItem('token', user.user.id)
   }
 
@@ -85,11 +84,15 @@ class App extends React.Component {
 
   signUpSession = (sessionId) => {
     Api.enrollments.addEnrollment(sessionId, this.state.auth.user.user.id)
-    .then(Api.sessions.fetchSessions().then(data=>{
+    .then(Api.auth.getCurrentUser()
+    .then(data=>{
+      const currentUser = { user : data }
       this.setState({
-        sessions: data
+        auth : currentUser,
+        loggedIn : true
       })
-    }))
+    })
+    )
   }
   
   fetchAllData = () => {
