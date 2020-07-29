@@ -7,6 +7,8 @@ import ClassIndex from './components/class-index/ClassIndex.js'
 import Dashboard from './components/dashboard/Dashboard.js'
 import ClassShow from './components/class-show/ClassShow.js'
 import { Api } from './services/Api.js'
+import { fetchSessions } from '../actions/fetchSessions'
+
 
 const link = {
   width: '100px',
@@ -150,4 +152,12 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch){
+  return { fetchSessions: () => dispatch(fetchSessions()) }
+}
+ 
+function mapStateToProps(state){
+  return { sessions: state.sessions }
+}
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(App)

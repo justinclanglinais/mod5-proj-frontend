@@ -19,3 +19,5 @@ function sessionsReducer(state = { sessions: [], requesting: false }, action) {
       return state;
   }
 };
+
+

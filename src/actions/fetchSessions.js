@@ -1,6 +1,5 @@
 import { Api } from '../services/Api.js'
 
-
 export function fetchSessions() {
   return (dispatch) => {
     dispatch({ type: 'START_ADDING_SESSIONS_REQUEST' });

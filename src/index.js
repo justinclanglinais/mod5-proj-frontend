@@ -4,10 +4,11 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import App from './App';
+import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import manageSessions from './reducers/index.js'
 
-let store = createStore(manageSessions)
+const store = createStore(manageSessions, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
