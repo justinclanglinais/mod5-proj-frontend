@@ -67,14 +67,27 @@ h3 {
   align-content: center;
 }
 
+.card-time {
+  flex-grow: 1;
+  text-align: top;
+  width: 100px;
+  margin: 10px;
+  padding: 10px;
+
+}
+
 .card-body {
   flex-grow: 1;
   text-align: left;
+  width: 370;
+  margin: auto;
 }
 
 .card-buttons {
-  flex-grow: 2;
+  flex-grow: 1;
   text-align: right;
+  width: 310px;
+
 }
 .container-child {
   flex-grow: 1;

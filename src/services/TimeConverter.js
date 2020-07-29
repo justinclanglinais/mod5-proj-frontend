@@ -55,9 +55,22 @@ const getDay = (obj) => {
 }
 
 const getTime = (obj) => {
-
+    let dateTime = new Date(obj.toString())
+    let arr = dateTime.toString().split(" ")
+    let time = arr[4]
+    let timeArr = time.split(":")
+    let ampm = ''
+    if (timeArr[0] > 12) {
+        return `${timeArr[0]-12}:${timeArr[1]} PM`
+    } else if (timeArr[0] < 10) {
+        let temp = timeArr[0].split('')[1]
+        return `${temp}:${timeArr[1]} AM`
+    } else {
+        return `${timeArr[0]}:${timeArr[1]} AM`
+    }
 }
 
 export const TimeConverter = {
-    getDay
+    getDay,
+    getTime
 }
