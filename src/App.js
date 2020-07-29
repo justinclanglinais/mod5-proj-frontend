@@ -80,11 +80,14 @@ class App extends React.Component {
   
   addSession = (classObj) => {
     Api.sessions.addSession(classObj)
+    console.log("added session!")
     Api.sessions.fetchSessions().then(data=>{
+      console.log("About to set state!")
       this.setState({
         ...this.state,
         sessions: data
       })
+      console.log("State set!")
     })
   }
 

@@ -16,7 +16,6 @@ export default class ClassCard extends Component {
                         {time ? TimeConverter.getTime(time) : null}
                     </div>
                     <div className="card-body">
-                        {/* {console.log(time)} */}
                         {time ? TimeConverter.getDay(time) : null} - {category.name.includes("Kids") ? "(45 min)" : "(60 min)"}
                         <h3>{topic.name}</h3>
                         <Card.Title>{category.name}</Card.Title>
