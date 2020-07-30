@@ -69,6 +69,12 @@ const addEnrollment = (sessionId, loggedUserId) => {
     .then(res=>res.json())
 }
 
+const deleteEnrollment = (id) => {
+    return fetch(`${API_ROOT}/enrollments/${id}`, {
+        method: 'DELETE'
+    })
+}
+
 export const Api = {
     auth: {
         login,
@@ -90,6 +96,7 @@ export const Api = {
         fetchCategories
     },
     enrollments: {
-        addEnrollment
+        addEnrollment,
+        deleteEnrollment
     }
 }

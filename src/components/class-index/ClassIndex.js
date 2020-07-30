@@ -5,7 +5,7 @@ import Calendar from 'react-calendar'
 const handleChange = (e) => {
     console.log(e)
 }
-const ClassIndex = ({match, sessions, users, topics, categories, addSession, signUpSession, user}) => (
+const ClassIndex = ({ match, sessions, users, topics, categories, addSession, signUpSession, user }) => (
     <div className="container">
         <div className="class-index-calendar">
             <Calendar onChange={handleChange}/>

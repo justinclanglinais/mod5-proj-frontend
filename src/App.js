@@ -93,7 +93,7 @@ class App extends React.Component {
 
   signUpSession = (sessionId) => {
     Api.enrollments.addEnrollment(sessionId, this.state.auth.user.user.id)
-    .then(Api.auth.getCurrentUser()
+    .then(d=> Api.auth.getCurrentUser()
     .then(data=>{
       const currentUser = { user : data }
       this.setState({
@@ -106,12 +106,26 @@ class App extends React.Component {
   
   deleteSession = (id) => {
     Api.sessions.deleteSession(id)
-    .then(Api.sessions.fetchSessions()
+    .then(d => Api.sessions.fetchSessions())
     .then(data=>{
       this.setState({
         sessions: data
       })
-    }))
+    })
+  }
+
+  deleteEnrollment = (id) => {
+    let session = this.state.auth.user.user.sessions.find(s => s.session_id == id)
+    Api.enrollments.deleteEnrollment(session.id)
+    .then(d=> Api.auth.getCurrentUser()
+    .then(data=>{
+      const currentUser = { user : data }
+      this.setState({
+        auth : currentUser,
+        loggedIn : true
+      })
+    })
+    )
   }
 
   fetchAllData = () => {
@@ -159,7 +173,7 @@ class App extends React.Component {
             <Navbar loggedIn={this.state.loggedIn}/>
             {this.state.loggedIn ? <button onClick={this.handleLogout}>LOG OUT</button> : null}
             <Route exact path="/" render={() => <h1>Jiu-Jitsu Class Management Home Page</h1>} />
-            {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} />} /> : null }
+            {this.state.loggedIn ? <Route exact path="/dashboard" render={() => <Dashboard user={this.state.auth.user.user} deleteEnrollment={this.deleteEnrollment} />} /> : null }
             <Route exact path="/signup" render={routerProps => <Signup {...routerProps} handleLogin={this.handleLogin} />} />
             <Route exact path="/login" render={props => {
               return <Login {...props} handleLogin={this.handleLogin} />}

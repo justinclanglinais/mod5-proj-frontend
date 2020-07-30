@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
                 </div>
                 <div className="container">
                     <div className="container-child">
-                        {this.props.user.sessions && <MyClasses sessions={this.props.user.sessions} username={this.props.user.name} dashboard={true}/>}
+                        {this.props.user.sessions && <MyClasses sessions={this.props.user.sessions} username={this.props.user.name} dashboard={true} deleteEnrollment={this.props.deleteEnrollment} />}
                     </div>
                     <div className="container-child">
                         {this.props.user && <UserInfo user={this.props.user}/>}

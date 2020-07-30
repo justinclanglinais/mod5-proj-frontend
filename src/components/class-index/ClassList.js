@@ -3,7 +3,7 @@ import ClassCard from '../ClassCard.js'
 import AddClass from './AddClass.js'
 import { Container, Row, Col } from 'react-bootstrap'
 
-const ClassList = ({sessions, users, topics, categories, addSession, signUpSession, user}) => {
+const ClassList = ({ sessions, users, topics, categories, addSession, signUpSession, user }) => {
     const renderClasses = sessions.map(s => 
         <div>
             <ClassCard thisSession={s} signUpSession={signUpSession} user={user} />

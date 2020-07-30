@@ -4,8 +4,12 @@ import {Card} from 'react-bootstrap'
 import {TimeConverter} from '../services/TimeConverter.js'
 
 export default class ClassCard extends Component {
+    
     handleSignUpSession = () => {
         this.props.signUpSession(this.props.thisSession.id)
+    }
+    handleLeaveClass = () => {
+        this.props.deleteEnrollment(this.props.thisSession.id)
     }
     render() {
         const { id, time, topic, category, user } = this.props.thisSession
@@ -24,6 +28,8 @@ export default class ClassCard extends Component {
                     <div className="card-buttons">
                         <Link className="card-button-2" to={`/classes/${id}`}>View Details</Link>
                         {this.props.dashboard ? null : <button className="card-button" onClick={this.handleSignUpSession}>Sign Up</button>}
+                        {this.props.dashboard ? <button className="card-button" onClick={() => console.log("wire up unenroll")}>Leave Class</button> : null}
+
                     </div>
                 </div>
             </div>
