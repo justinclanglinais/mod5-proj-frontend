@@ -164,6 +164,23 @@ h3 {
   margin-right: auto;
 }
 
+.belt {
+  width: 140px;
+  height: 39px;
+  background-color: #0078AB;
+}
+.belt-bar {
+  width: 71px;
+  height: 39px;
+  background-color: black;
+}
+.belt-end {
+  width: 35px;
+  height: 39px;
+  background-color: #0078AB;
+}
+
+
 /* .Head {
   font-family: 'Karla'
 } */

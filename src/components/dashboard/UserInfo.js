@@ -15,8 +15,7 @@ export default class UserInfo extends Component {
                     <h3>{age}</h3>
                 </div>
                 <div>
-                    <h3>(render belt image)</h3>
-                    {belt} belt
+                    <h3>{belt} belt</h3>
                 </div>
                 <div>
                     <h2>Achievements:</h2>
