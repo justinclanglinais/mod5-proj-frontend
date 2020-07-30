@@ -7,6 +7,7 @@ import ClassIndex from './components/class-index/ClassIndex.js'
 import Dashboard from './components/dashboard/Dashboard.js'
 import ClassShow from './components/class-show/ClassShow.js'
 import { Api } from './services/Api.js'
+import { trackPromise } from 'react-promise-tracker';
 
 const link = {
   width: '100px',
@@ -154,6 +155,7 @@ class App extends React.Component {
   componentDidMount = () => {
     const token = localStorage.getItem('token')
     if (token) {
+      trackPromise(
       Api.auth.getCurrentUser().then(data=>{
         const currentUser = { user : data }
         this.setState({
@@ -161,6 +163,7 @@ class App extends React.Component {
           loggedIn : true
         })
       })
+      )
     }
     this.fetchAllData()
   }

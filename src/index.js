@@ -6,13 +6,23 @@ import { createStore } from 'redux'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import manageSessions from './reducers/index.js'
+import { usePromiseTracker } from "react-promise-tracker";
 
 let store = createStore(manageSessions)
+
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker();
+  return (
+    promiseInProgress && 
+    <h1>Hey some async call in progress ! </h1>
+  );  
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <LoadingIndicator/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
