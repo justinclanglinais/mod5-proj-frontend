@@ -74,19 +74,20 @@ class App extends React.Component {
       },
       body: JSON.stringify(session)
     })
-    .then(r=>r.json()).then(d=>console.log(d))
+    .then(r=>r.json())
+    .then(d=> Api.sessions.fetchSessions())
+    .then(d=>this.setState({
+      sessions: d
+    }))
   }
   
   addSession = (classObj) => {
     Api.sessions.addSession(classObj)
-    console.log("added session!")
-    Api.sessions.fetchSessions().then(data=>{
-      console.log("About to set state!")
+    .then(d=> Api.sessions.fetchSessions())
+    .then(data=>{
       this.setState({
-        ...this.state,
         sessions: data
       })
-      console.log("State set!")
     })
   }
 

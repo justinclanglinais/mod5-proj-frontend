@@ -20,7 +20,7 @@ const ClassList = ({sessions, users, topics, categories, addSession, signUpSessi
                     <Row>
                         <h2>Scheduled Classes</h2>
                         <Col align="right">
-                            {renderClasses}
+                            {sessions && renderClasses}
                         </Col>
                     </Row>
                 </Container>

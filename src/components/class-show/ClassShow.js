@@ -24,7 +24,6 @@ export default class ClassShow extends React.Component {
         this.props.history.push('/classes')
     }
     render () {
-        console.log(this.props.sessions, this.props.match)
         // const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
         const { id, time , user , category , topic } = this.props.sessions.find(s => s.id == this.props.match.params.id)
         return (
