@@ -29,7 +29,7 @@ export default class Login extends Component {
     }
 
     handleSignup = () => {
-        console.log("Route to Signup")
+        this.props.history.push('/signup')
     }
 
     render () {
@@ -49,10 +49,10 @@ export default class Login extends Component {
                                 <input className="form-field" type="text" name="password" placeholder="enter password" />
                             </div>
                             <div>
-                                <button type="submit" >Login</button>
+                                <button className="card-button" type="submit" >Login</button>
                             </div>
                         </form>
-                        Not a member? <button onClick={this.handleSignup} >Sign Up!</button>
+                        Not a member? <button className="card-button" onClick={this.handleSignup} >Sign Up!</button>
                     </div>
                 </div>
                 <div className="login-bg-image">

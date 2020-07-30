@@ -78,7 +78,7 @@ export default class Signup extends Component {
                             </select>
                         </div>
                         <div>
-                            <button>Sign Up</button>
+                            <button className="card-button" >Sign Up</button>
                         </div>
                     </form>
                 </Fragment>
