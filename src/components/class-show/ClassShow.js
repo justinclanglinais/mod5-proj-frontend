@@ -2,7 +2,7 @@ import React from 'react';
 import InstructorCard from './InstructorCard.js'
 import EditForm from './EditForm.js'
 import ReactPlayer from "react-player"
-
+import {TimeConverter} from '../../services/TimeConverter.js'
 
 
 export default class ClassShow extends React.Component {
@@ -24,13 +24,12 @@ export default class ClassShow extends React.Component {
         this.props.history.push('/classes')
     }
     render () {
-        // const { id, time , user , category , topic } = this.props.sessions[this.props.match.params.id - 1]
         const { id, time , user , category , topic } = this.props.sessions.find(s => s.id == this.props.match.params.id)
         return (
             <div classname="container-show">
                 <div classname="container-child">
                     <div>
-                        <h1>{category.name}</h1>
+                        <h1>{topic.name}</h1>
                     </div>
                     <div >
                         <ReactPlayer url={topic.vid_url} />
@@ -38,9 +37,9 @@ export default class ClassShow extends React.Component {
                 </div>
                 <div className="container-child">
                     <div>
-                        <h3>{topic.name}</h3>
+                        <h3>{category.name}</h3>
                         <p>
-                            {time}
+                            {time ? TimeConverter.getDay(time) : null} - {time ? TimeConverter.getTime(time) : null}
                             {category.name.includes("Kids") ? "(45 min)" : "(60 min)"}
                         </p>
                         <p>
