@@ -43,7 +43,7 @@ export default class ClassShow extends React.Component {
                             {category.name.includes("Kids") ? "(45 min)" : "(60 min)"}
                         </p>
                         <p>
-                            Learn Brazilian Jiu-Jitsu basics. During this class, we will cover proper forms and movements for guarding against and attacking your opponents. This class is for kids with Lv.1 White Belt.
+                            Learn Brazilian Jiu-Jitsu basics. During this class, we will cover proper forms and movements for guarding against and attacking your opponents. This class is for 
                         </p>
                     </div>
                     <div>
