@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mod5-proj-frontend/static/css/main.197d3c26.chunk.css",
-    "main.js": "/mod5-proj-frontend/static/js/main.3c8fce7e.chunk.js",
-    "main.js.map": "/mod5-proj-frontend/static/js/main.3c8fce7e.chunk.js.map",
+    "main.js": "/mod5-proj-frontend/static/js/main.ca1798a7.chunk.js",
+    "main.js.map": "/mod5-proj-frontend/static/js/main.ca1798a7.chunk.js.map",
     "runtime-main.js": "/mod5-proj-frontend/static/js/runtime-main.f2ca423f.js",
     "runtime-main.js.map": "/mod5-proj-frontend/static/js/runtime-main.f2ca423f.js.map",
     "static/js/2.b36dfdcb.chunk.js": "/mod5-proj-frontend/static/js/2.b36dfdcb.chunk.js",
     "static/js/2.b36dfdcb.chunk.js.map": "/mod5-proj-frontend/static/js/2.b36dfdcb.chunk.js.map",
     "index.html": "/mod5-proj-frontend/index.html",
-    "precache-manifest.e794817b4f3f880e66b763441ea8f235.js": "/mod5-proj-frontend/precache-manifest.e794817b4f3f880e66b763441ea8f235.js",
+    "precache-manifest.9434c437dd77e99aaffa9f31a735aa5a.js": "/mod5-proj-frontend/precache-manifest.9434c437dd77e99aaffa9f31a735aa5a.js",
     "service-worker.js": "/mod5-proj-frontend/service-worker.js",
     "static/css/main.197d3c26.chunk.css.map": "/mod5-proj-frontend/static/css/main.197d3c26.chunk.css.map",
     "static/js/2.b36dfdcb.chunk.js.LICENSE.txt": "/mod5-proj-frontend/static/js/2.b36dfdcb.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f2ca423f.js",
     "static/js/2.b36dfdcb.chunk.js",
     "static/css/main.197d3c26.chunk.css",
-    "static/js/main.3c8fce7e.chunk.js"
+    "static/js/main.ca1798a7.chunk.js"
   ]
 }
