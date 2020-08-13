@@ -1,4 +1,4 @@
-const API_ROOT = `http://localhost:3000`
+const API_ROOT = `justin-jitsu-backend.herokuapp.com`
 
 const headers = {
     'Content-Type' : 'application/json',
