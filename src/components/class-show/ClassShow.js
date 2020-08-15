@@ -50,12 +50,31 @@ export default class ClassShow extends React.Component {
                         <InstructorCard instructor={user}/>
                     </div>
                     <div>
-                        <button className="card-button" onClick={() => this.setState({edit : !this.state.edit})}>Edit Class</button>
-                        <button className="card-button" onClick={() => this.handleDelete(parseInt(id))}>Delete Class</button>
-                        <button className="card-button" onClick={() => this.handleSignUpSession(id)}>Sign up for this Class!</button>
+                        <button className="card-button" onClick={() => this.setState({edit : !this.state.edit})}>
+                            Edit Class
+                        </button>
+                        <button className="card-button" onClick={() => this.handleDelete(parseInt(id))}>
+                            Delete Class
+                        </button>
+                        <button className="card-button" onClick={() => this.handleSignUpSession(id)}>
+                            Sign up for this Class!
+                        </button>
                     </div>
                     <div>
-                        {this.state.edit ? <EditForm id={id} user={user} category={category} topic={topic} toggleEdit={this.toggleEdit} sendEdit={this.props.sendEdit} users={this.props.users} topics={this.props.topics} categories={this.props.categories}/> : null}
+                        {this.state.edit ? 
+                            <EditForm 
+                                id={id} 
+                                user={user} 
+                                category={category} 
+                                topic={topic} 
+                                toggleEdit={this.toggleEdit} 
+                                sendEdit={this.props.sendEdit} 
+                                users={this.props.users} 
+                                topics={this.props.topics} 
+                                categories={this.props.categories}
+                            /> : 
+                            null
+                        }
                     </div>
                 </div>
             </div>

@@ -6,14 +6,23 @@ import { Container, Row, Col } from 'react-bootstrap'
 const ClassList = ({ sessions, users, topics, categories, addSession, signUpSession, user }) => {
     const renderClasses = sessions.map(s => 
         <div>
-            <ClassCard thisSession={s} signUpSession={signUpSession} user={user} />
+            <ClassCard 
+                thisSession={s} 
+                signUpSession={signUpSession} 
+                user={user} 
+            />
             <p></p>
         </div>
     )
     return (
         <div classname="container-row">
             <div classname="card-body">
-                <AddClass users={users} topics={topics} categories={categories} addSession={addSession}  />
+                <AddClass 
+                    users={users} 
+                    topics={topics} 
+                    categories={categories} 
+                    addSession={addSession}
+                />
             </div>
             <div classname="card-buttons">
                 <Container>
