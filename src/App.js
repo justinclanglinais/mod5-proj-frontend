@@ -20,17 +20,7 @@ const link = {
 
 const Navbar = (props) =>
   <div className="navigation">
-    <NavLink
-      to="/"
-      /* set exact so it knows to only set activeStyle when route is deeply equal to link */
-      exact
-      /* add styling to Navlink */
-      style={link}
-      /* add prop for activeStyle */
-      activeStyle={{
-        background: 'grey'
-      }}
-    >Home</NavLink>
+    
     {props.loggedIn ? null : <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>}
     {props.loggedIn ? null : <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>}
     {props.loggedIn ? <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink> : null }
