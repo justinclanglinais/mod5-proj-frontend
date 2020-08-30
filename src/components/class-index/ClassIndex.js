@@ -5,19 +5,21 @@ import Calendar from 'react-calendar'
 // const ClassIndex = ({ match, sessions, users, topics, categories, addSession, signUpSession, user }) => (
     export default class ClassIndex extends React.Component {
     state = {
-        date : ''
+        filter : ''
     }
-    handleChange = (e) => {
-        console.log(e)
+    handleFilter = (e) => {
+        this.setState({
+            date: e
+        })
     }
     render () {
-        let { match, sessions, users, topics, categories, addSession, signUpSession, user } = this.props
+        let { sessions, users, topics, categories, addSession, signUpSession, user } = this.props
         return (
             <div className="container">
                 <div className="class-index-calendar">
                     <Calendar
-                        onChange={this.handleChange}
-                        value={this.state.date}
+                        onChange={this.handleFilter}
+                        value={this.state.filter}
                     />
                 </div>
                 <div className="class-index-container">
@@ -29,6 +31,7 @@ import Calendar from 'react-calendar'
                         addSession={addSession} 
                         signUpSession={signUpSession} 
                         user={user} 
+                        filter={this.state.filter}
                     />
                 </div>
             </div>

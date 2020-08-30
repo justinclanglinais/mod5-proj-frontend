@@ -106,7 +106,7 @@ class App extends React.Component {
   }
 
   deleteEnrollment = (id) => {
-    let session = this.state.auth.user.user.sessions.find(s => s.session_id == id)
+    let session = this.state.auth.user.user.sessions.find(s => s.session_id === id)
     Api.enrollments.deleteEnrollment(session.id)
     .then(d=> Api.auth.getCurrentUser()
     .then(data=>{
