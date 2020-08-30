@@ -9,7 +9,7 @@ import Calendar from 'react-calendar'
     }
     handleFilter = (e) => {
         this.setState({
-            date: e
+            filter: e
         })
     }
     render () {
