@@ -20,7 +20,6 @@ const link = {
 
 const Navbar = (props) =>
   <div className="navigation">
-    
     {props.loggedIn ? null : <NavLink to="/login" exact style={link} activeStyle={{background: 'grey'}}>Login</NavLink>}
     {props.loggedIn ? null : <NavLink to="/signup" exact style={link} activeStyle={{background: 'grey'}}>Signup</NavLink>}
     {props.loggedIn ? <NavLink to="/dashboard" exact style={link} activeStyle={{background: 'grey'}}>Dashboard</NavLink> : null }
