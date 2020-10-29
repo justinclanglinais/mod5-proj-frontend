@@ -3,7 +3,7 @@ import ClassList from './ClassList.js'
 import Calendar from 'react-calendar'
 
 // const ClassIndex = ({ match, sessions, users, topics, categories, addSession, signUpSession, user }) => (
-    export default class ClassIndex extends React.Component {
+export default class ClassIndex extends React.Component {
     state = {
         filter : ''
     }
